@@ -108,7 +108,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputBirthday" class="control-label">Start Work
-                                                <span class='require'>(From: 8am - to 5pm)</span></label>
+                                                <span class='require'>*</span></label>
                                             <div class="input-group bootstrap-timepicker">
                                                 <input type="text"
                                                        class="timepicker-24hr form-control" id="timepicker1"/><span
@@ -121,7 +121,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputBirthday" class="control-label">End Work
-                                                <span class='require'>(From: 5pm - to 12pm)</span></label>
+                                                <span class='require'>*</span></label>
                                             <div class="input-group bootstrap-timepicker">
                                                 <input type="text"
                                                        class="timepicker-24hr form-control" id="timepicker2"/><span
@@ -161,16 +161,7 @@
                                             <input name="salary" type="text" placeholder="Net Salary" class="form-control" required/>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Gross Salary
-                                                <span class='require'>*</span></label>
-                                            <input name="salary" type="text" placeholder="Gross Salary" class="form-control" required/>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Join Date
@@ -181,6 +172,18 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Salary Due Date</label>
+                                            <input type="text" id="datepicker3" data-date-format="dd/mm/yyyy"
+                                                   placeholder="dd/mm/yyyy"
+                                                   class="datepicker-default form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+
 
 
                             <div class="form-actions text-left pal">
@@ -207,9 +210,16 @@
                 } );
             </script>
 
+            <script>
+                $( function() {
+                    $( "#datepicker3" ).datepicker();
+                } );
+            </script>
+
             <script type="text/javascript">
                 $('#timepicker1').timepicker();
             </script>
+
             <script type="text/javascript">
                 $('#timepicker2').timepicker();
             </script>

@@ -110,6 +110,18 @@ Route::get('/salary/reward/edit/{id}', "BackEnd\RewardController@edit")->name("s
 Route::post('/salary/reward/update/{id}', "BackEnd\RewardController@update")->name("salary.reward.update");
 Route::get('/salary/reward/delete/{id}', "BackEnd\RewardController@delete")->name("salary.reward.delete");
 
+//Vacation Request ar jonno route
+Route::get('/vacation', "BackEnd\VacationController@index")->name("vacation");
+Route::get('/vacation/confirm/{id}', "BackEnd\VacationController@confirm")->name("vacation.confirm");
+Route::get('/vacation/reject/{id}', "BackEnd\VacationController@reject")->name("vacation.reject");
+
+//Vacation Request ar jonno route
+Route::get('/notification', "BackEnd\NotificationController@index")->name("notification");
+Route::post('/notification/store', "BackEnd\NotificationController@store")->name("notification.store");
+Route::get('/notification/edit/{id}', "BackEnd\NotificationController@edit")->name("notification.edit");
+Route::post('/notification/update/{id}', "BackEnd\NotificationController@update")->name("notification.update");
+Route::get('/notification/delete/{id}', "BackEnd\NotificationController@delete")->name("notification.delete");
+
 //Employee Record ar jonno route
 Route::get('/employee/record', "BackEnd\RecordController@index")->name("employee.record");
 

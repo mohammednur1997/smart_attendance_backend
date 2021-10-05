@@ -30,6 +30,7 @@
                                     <th width="3%">SL</th>
                                     <th width="10%">Name</th>
                                     <th width="10%">Net Salary</th>
+                                    <th width="10%">Gross Salary</th>
                                     <th width="10%">Deduction</th>
                                     <th width="10%">Salary Status</th>
                                     <th width="10%">Status</th>
@@ -43,6 +44,7 @@
                                     <tr>
                                         <td>{{$loop->index}}</td>
                                         <td>{{$row->name}}</td>
+                                        <td>{{$row->salary}}</td>
                                         <td>{{$row->salary}}</td>
                                         <td>{{$row->amount}}</td>
                                         <td>{{$row->salary_status}}</td>

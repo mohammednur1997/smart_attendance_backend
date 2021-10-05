@@ -7,9 +7,9 @@
         <ol class="breadcrumb page-breadcrumb pull-left">
             <li><i class="fa fa-home"></i>&nbsp;<a href={{route("deshboard")}}>Home</a>&nbsp;&nbsp;<i
                     class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-            <li class="hidden"><a href={{route("employees")}}>Employees</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+            <li><a href={{route("employees")}}>Employees</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
             </li>
-            <li class="active">Employees List</li>
+            <li class="active">Salary List</li>
         </ol>
         <div class="clearfix"></div>
     </div>
@@ -21,7 +21,21 @@
                 <div class="col-lg-12">
                     <div class="portlet portlet-white">
                         <div class="portlet-header pam mbn">
-                            <div class="caption">All Employees</div>
+                            <div class="caption">Manage Salary</div>
+                            <div class="portlet-body pan">
+                                <form role="form" class="form-horizontal form-separated">
+                                    <div class="form-body pdl">
+                                            <div class="col-md-3">
+                                                <label for="selGender" class="control-label">Date</label>
+                                                <select id="gender" name="gender" class="form-control">
+                                                    <option value="0">This Month</option>
+                                                    <option value="1">This Year</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div class="portlet-body pan">
                             <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn">

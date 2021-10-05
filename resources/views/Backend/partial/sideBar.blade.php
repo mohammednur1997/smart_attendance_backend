@@ -58,43 +58,31 @@
 
             <li  class={{ Route::is("employee.report") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
                         <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Employee Report</span><span class="fa arrow"></span></a>
+                    </i><span class="menu-title">Admin Report</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("employee.report")}}><i class="fa fa-align-justify"></i><span
                                 class="submenu-title">Manege Report</span></a></li>
                 </ul>
             </li>
 
-           {{-- <li class={{ Route::is("service.all") || Route::is("service.create") || Route::is("service.edit") ? "active":"" }}><a href="#"><i class="fa fa-cog fa-fw">
+
+            <li  class={{ Route::is("vacation") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
                         <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Reports </span><span class="fa arrow"></span></a>
+                    </i><span class="menu-title">Vacation Request</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href={{route("service.all")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manage Reports</span></a></li>
+                    <li><a href={{route("vacation")}}><i class="fa fa-align-justify"></i><span
+                                class="submenu-title">Manege Vacation</span></a></li>
                 </ul>
-            </li>--}}
+            </li>
 
-
-
-{{--
-            <li class={{ Route::is("team.all") || Route::is("team.create") || Route::is("team.edit") ? "active":"" }}><a href="#"><i class="fa fa-user fa-fw">
-                        <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Salaries</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href={{route("team.all")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manage Salaries</span></a></li>
-                </ul>
-            </li>--}}
-
-           {{-- <li class={{ Route::is("client.all") || Route::is("client.create") || Route::is("client.edit") ? "active":"" }}><a href="#"><i class="fa fa-users fa-fw">
+            <li  class={{ Route::is("notification") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Notification</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href={{route("client.all")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manage Notification</span></a></li>
+                    <li><a href={{route("notification")}}><i class="fa fa-align-justify"></i><span
+                                class="submenu-title">Manege Notification</span></a></li>
                 </ul>
             </li>
---}}
 
 
 

@@ -26,16 +26,33 @@
                                 <div class="portlet-body pan">
                                 <form role="form" class="form-horizontal form-separated">
                                     <div class="form-body pdl">
-                                        <div class="form-group"><label class="col-md-3 control-label">Advance Date Range
-                                                Picker</label>
 
-                                            <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="col-md-3">
+                                                <label class="col-md-3 control-label">Date</label>
                                                 <div class="btn btn-blue reportrange"><i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i
                                                         class="fa fa-angle-down"></i>
                                                     <input type="hidden"name="datestart"/>
                                                     <input type="hidden" name="endstart"/>
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-3">
+                                                <label for="selGender" class="control-label">Late comers </label>
+                                                <select id="gender" name="gender" class="form-control">
+                                                    <option value="0">Late</option>
+                                                    <option value="1">In Time</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <label for="selGender" class="control-label">Attendees</label>
+                                                <select id="gender" name="gender" class="form-control">
+                                                    <option value="0">Present</option>
+                                                    <option value="1">Absence</option>
+                                                </select>
+                                            </div>
+
                                         </div>
                                     </div>
                                    </form>
@@ -50,6 +67,7 @@
                                     <th width="10%">Name</th>
                                     <th width="10%">Net Salary</th>
                                     <th width="10%">Gross Salary</th>
+                                    <th width="10%">Late comers</th>
                                     <th width="10%">Deduction</th>
                                     <th width="10%">Salary Status</th>
                                     <th width="10%">Status</th>
@@ -65,6 +83,14 @@
                                         <td>{{$row->name}}</td>
                                         <td>{{$row->salary}}</td>
                                         <td>{{$row->salary}}</td>
+                                        <td>
+                                            @if($row->late == 0)
+                                                <span class="badge badge-danger">Late</span>
+                                            @else
+                                                <span class="badge badge-info">in Time</span>
+                                            @endif
+
+                                        </td>
                                         <td>{{$row->amount}}</td>
                                         <td>{{$row->salary_status}}</td>
                                         <td>{{$row->status}}</td>
