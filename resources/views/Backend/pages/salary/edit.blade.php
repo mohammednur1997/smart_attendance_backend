@@ -75,6 +75,7 @@
 
 
                                 <div class="row">
+
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Working Hours</label>
@@ -84,11 +85,8 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Paid At (date)
-                                                <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker" data-date-format="dd/mm/yyyy"
-                                                   placeholder="dd/mm/yyyy"
-                                                   class="datepicker-default form-control" required/>
+                                                for="inputFirstName" class="control-label">Salary Due Date</label>
+                                            <input name="work_hour" readonly type="text" value="25th" class="form-control" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -107,6 +105,18 @@
                                                 for="inputFirstName" class="control-label">Amount Paid
                                                 <span class='require'>*</span></label>
                                             <input name="work_hour" type="text" value="" class="form-control" required/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Paid At (date)
+                                                <span class='require'>*</span></label>
+                                            <input type="text" id="datepicker" data-date-format="dd/mm/yyyy"
+                                                   placeholder="dd/mm/yyyy"
+                                                   class="datepicker-default form-control" required/>
                                         </div>
                                     </div>
                                 </div>

@@ -63,19 +63,43 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputFirstName" class="control-label">Day Off
-                                                <span class='require'>*</span></label>
-                                            <select multiple="multiple" class="form-control">
-                                                <option>Saturday</option>
-                                                <option>Sunday</option>
-                                                <option>Monday</option>
-                                                <option>Tuesday</option>
-                                                <option>Wednesday</option>
-                                                <option>Thursday</option>
-                                                <option>Friday</option>
-                                            </select>
-                                            {{--<input name="day_off" type="text" placeholder="Day Off" class="form-control"/>--}}
+
+                                        <div class="form-group"><label>Select Day Off</label>
+
+                                            <div class="checkbox-list">
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="saturday"/>&nbsp;
+                                                    Saturday</label>
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="sunday"/>&nbsp;
+                                                    Sunday</label>
+
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="monday"/>&nbsp;
+                                                    Monday</label>
+
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="tuesday"/>&nbsp;
+                                                    Tuesday</label>
+
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="wednesday"/>&nbsp;
+                                                    Wednesday </label>
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="thursday"/>&nbsp;
+                                                    Thursday</label>
+
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="day_off[]" type="checkbox" value="friday"/>&nbsp;
+                                                    Friday</label>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,9 +118,10 @@
                                         <div class="form-group">
                                             <label for="selGender" class="control-label">Gender
                                                 <span class='require'>*</span></label>
-                                            <select id="gender" name="gender" class="form-control">
-                                                <option value="0">Male</option>
-                                                <option value="1">Female</option>
+                                            <select id="gender" name="gender" class="form-control" required>
+                                                <option value="0">===Select Gender===</option>
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
                                             </select>
                                         </div>
                                     </div>
@@ -110,8 +135,7 @@
                                             <label for="inputBirthday" class="control-label">Start Work
                                                 <span class='require'>*</span></label>
                                             <div class="input-group bootstrap-timepicker">
-                                                <input type="text"
-                                                       class="timepicker-24hr form-control" id="timepicker1"/><span
+                                                <input type="text" name="start_work" class="timepicker-24hr form-control" id="timepicker1" required/><span
                                                     class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                             {{--<input name="shift_period" type="text" placeholder="Start Work" class="form-control"/>--}}
@@ -123,8 +147,7 @@
                                             <label for="inputBirthday" class="control-label">End Work
                                                 <span class='require'>*</span></label>
                                             <div class="input-group bootstrap-timepicker">
-                                                <input type="text"
-                                                       class="timepicker-24hr form-control" id="timepicker2"/><span
+                                                <input type="text" name="end_work" class="timepicker-24hr form-control" id="timepicker2" required/><span
                                                     class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                           {{--  <input name="shift_period" type="text" placeholder="End Work" class="form-control"/>--}}
@@ -136,14 +159,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputBirthday" class="control-label">image(600 * 600)</label>
-                                            <input name="image" type="file" class="form-control"/>
+                                            <input name="employee_image" type="file" class="form-control"/>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Birthday</label>
-                                           <input type="text" id="datepicker" data-date-format="dd/mm/yyyy"
+                                           <input type="text" name="birthday" id="datepicker" data-date-format="dd/mm/yyyy"
                                                                          placeholder="dd/mm/yyyy"
                                                                          class="datepicker-default form-control"/>
 
@@ -166,7 +189,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Join Date
                                                 <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker2" data-date-format="dd/mm/yyyy"
+                                            <input type="text" name="join_date" id="datepicker2" data-date-format="dd/mm/yyyy"
                                                    placeholder="dd/mm/yyyy"
                                                    class="datepicker-default form-control"/>
                                         </div>
@@ -176,10 +199,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Salary Due Date</label>
-                                            <input type="text" id="datepicker3" data-date-format="dd/mm/yyyy"
-                                                   placeholder="dd/mm/yyyy"
-                                                   class="datepicker-default form-control"/>
+                                                for="inputFirstName" class="control-label">Salary Due Date (optional)</label>
+                                            <input name="salary_due" type="text" placeholder="Salary Due Date" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>

@@ -20,12 +20,13 @@ class RecordController extends Controller
         $employee = Employee::find(1);
         $record = Record::all();*/
 
-        $record = DB::table('record')
-            ->join('employees', 'record.employee_id', '=', 'employees.id')
-            ->join('salary', 'record.employee_id', '=', 'salary.employee_id')
-            ->join('deductions', 'record.employee_id', '=', 'deductions.employee_id')
-            ->select('record.*', 'employees.*', 'salary.salary_status', "deductions.amount")
+        $record = DB::table('records')
+            ->join('employees', 'records.employee_id', '=', 'employees.id')
+            ->join('salary', 'records.employee_id', '=', 'salary.employee_id')
+            ->join('deductions', 'records.employee_id', '=', 'deductions.employee_id')
+            ->select('records.*', 'employees.*', 'salary.salary_status', "deductions.amount")
             ->get();
+
         return view("Backend.pages.record.index", compact("record"));
     }
 }
