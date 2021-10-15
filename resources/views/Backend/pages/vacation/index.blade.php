@@ -24,7 +24,7 @@
                             <div class="caption">Vacation Request</div>
                         </div>
                         <div class="portlet-body pan">
-                            <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn">
+                            <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
                                 <thead>
                                 <tr>
                                     <th width="3%">SL</th>
@@ -75,6 +75,11 @@
         </div>
         @endsection
 @section("backendScript")
+            <script>
+                $(document).ready( function () {
+                    $('#myTable').DataTable();
+                } );
+            </script>
             <script>
                 $(document).on("click", "#confirm", function(e){
                     e.preventDefault();

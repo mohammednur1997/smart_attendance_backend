@@ -18,11 +18,32 @@ class ReportController extends Controller
 
             $record = DB::table('records')
                 ->join('employees', 'records.employee_id', '=', 'employees.id')
-                ->join('salary', 'records.employee_id', '=', 'salary.employee_id')
-                ->join('deductions', 'records.employee_id', '=', 'deductions.employee_id')
-                ->select('records.*', 'employees.*', 'salary.salary_status', "deductions.amount")
+                ->select('records.*', 'employees.*')
                 ->get();
             return view("Backend.pages.report.index", compact("record"));
         }
+
+    public function search(Request $request){
+        $record = DB::table('records')
+            ->join('employees', 'records.employee_id', '=', 'employees.id')
+            ->select('records.*', 'employees.*')
+            ->where(function($q) use ($request) {
+                if(!empty($request->late)) {
+                    $q->orWhere("late",'LIKE','%'.$request->late.'%');
+                }
+                if(!empty($request->attendance)) {
+                    $q->orWhere('present_status','LIKE','%'.$request->attendance.'%');
+                }
+                if(!empty($request->date)) {
+                    $q->orWhere('date','LIKE','%'.$request->date.'%');
+                }
+
+            })
+            /*->where('site', $site_code)*/
+            ->get();
+
+        return view("Backend.pages.report.index", compact("record"));
+
+    }
 
 }

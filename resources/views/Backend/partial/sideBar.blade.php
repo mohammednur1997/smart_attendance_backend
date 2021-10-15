@@ -47,21 +47,21 @@
                 </ul>
             </li>
 
-            <li  class={{ Route::is("employee.record") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+           {{-- <li  class={{ Route::is("employee.record") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Employee Record</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("employee.record")}}><i class="fa fa-align-justify"></i><span
                                 class="submenu-title">Manege Record</span></a></li>
                 </ul>
-            </li>
+            </li>--}}
 
             <li  class={{ Route::is("employee.report") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
                         <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Admin Report</span><span class="fa arrow"></span></a>
+                    </i><span class="menu-title">Employee Attendance</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("employee.report")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manege Report</span></a></li>
+                                class="submenu-title">Manege Attendance</span></a></li>
                 </ul>
             </li>
 

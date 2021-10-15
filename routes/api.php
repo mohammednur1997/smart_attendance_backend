@@ -24,6 +24,8 @@ Route::get("/users", "AuthController@users")->middleware("auth:api");*/
 /*Route::get("/myCart", "Api\OrderController@myCart")->middleware("auth:api");*/
 Route::post("/attendance", "Api\AttendanceController@attendance");
 
+/*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/
+
 
 
 

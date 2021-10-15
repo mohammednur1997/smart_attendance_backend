@@ -13,11 +13,9 @@
     <link type="text/css" rel="stylesheet"
           href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-
+    <link type="text/css" rel="stylesheet" href={{asset("assets/js/bootstrap/css/bootstrap.min.css")}}>
     <link type="text/css" rel="stylesheet" href={{asset("assets/css/jquery-ui-custom.css")}}>
 
-{{--    <link type="text/css" rel="stylesheet" href={{asset("assets/css/bootstrap.min.css")}}>--}}
-    <link type="text/css" rel="stylesheet" href={{asset("assets/js/bootstrap/css/bootstrap.min.css")}}>
 
     <link type="text/css" rel="stylesheet" href={{asset("assets/css/font-awesome.min.css")}}>
     <link type="text/css" rel="stylesheet" href={{asset("assets/js/bootstrap-daterangepicker/daterangepicker-bs3.css")}}>

@@ -23,57 +23,65 @@
                         <div class="portlet-header pam mbn">
                             <div class="caption">Employees Reports</div>
 
-                                <div class="portlet-body pan">
-                                <form role="form" class="form-horizontal form-separated">
+                            <div class="portlet-body pan">
+                                <form role="form" action="{{ route("search") }}" class="form-horizontal form-separated" method="post">
+                                    @csrf
                                     <div class="form-body pdl">
 
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <label class="col-md-3 control-label">Date</label>
-                                                <div class="btn btn-blue reportrange"><i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i
-                                                        class="fa fa-angle-down"></i>
-                                                    <input type="hidden"name="datestart"/>
-                                                    <input type="hidden" name="endstart"/>
-                                                </div>
-                                            </div>
 
                                             <div class="col-md-3">
                                                 <label for="selGender" class="control-label">Late comers </label>
-                                                <select id="gender" name="gender" class="form-control">
-                                                    <option value="0">Late</option>
-                                                    <option value="1">In Time</option>
+                                                <select id="late" name="late" class="form-control">
+                                                    <option value="yes">Late</option>
+                                                    <option value="no">In Time</option>
                                                 </select>
                                             </div>
 
                                             <div class="col-md-3">
-                                                <label for="selGender" class="control-label">Attendees</label>
-                                                <select id="gender" name="gender" class="form-control">
-                                                    <option value="0">Present</option>
-                                                    <option value="1">Absence</option>
+                                                <label for="selGender" class="control-label">Attendance</label>
+                                                <select id="attendance" name="attendance" class="form-control">
+                                                    <option value="present">Present</option>
+                                                    <option value="absence">Absence</option>
                                                 </select>
                                             </div>
 
+                                            <div class="col-md-3">
+                                                <label for="date" class="control-label">Date</label>
+                                                <select id="date" name="date" class="form-control">
+                                                    <option value="20/15/2021">Today</option>
+                                                    <option value="20/15/2021">This Week</option>
+                                                    <option value="20/15/2021">This Month</option>
+                                                    <option value="20/15/2021">This Year</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-actions text-left pal">
+                                                    <button type="submit"  class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
-                                   </form>
-                                </div>
+                                </form>
+                            </div>
 
                         </div>
                         <div class="portlet-body pan">
-                            <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn">
-                                <thead>
+                            <table class="text-center table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
+                                <thead class="text-center">
                                 <tr>
-                                    <th width="3%">SL</th>
-                                    <th width="10%">Name</th>
-                                    <th width="10%">Net Salary</th>
-                                    <th width="10%">Gross Salary</th>
-                                    <th width="10%">Late comers</th>
-                                    <th width="10%">Deduction</th>
-                                    <th width="10%">Salary Status</th>
-                                    <th width="10%">Status</th>
-                                    <th width="10%">Check In</th>
-                                    <th width="10%">Check Out</th>
-                                    <th width="10%">Day</th>
+                                    <th width="3%" class="text-center">SL</th>
+                                    <th width="15%" class="text-center">Name</th>
+                                    <th width="15%" class="text-center">Late comers</th>
+                                    <th width="15%" class="text-center">Attendance</th>
+                                    <th width="10%" class="text-center">Total Work</th>
+                                    <th width="10%" class="text-center">Check In</th>
+                                    <th width="10%" class="text-center">Check Out</th>
+                                    <th width="10%" class="text-center">Day</th>
+                                    <th width="15%" class="text-center">Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -81,43 +89,73 @@
                                     <tr>
                                         <td>{{$loop->index}}</td>
                                         <td>{{$row->name}}</td>
-                                        <td>{{$row->salary}}</td>
-                                        <td>{{$row->salary}}</td>
                                         <td>
-                                            @if($row->late == 0)
+                                            @if($row->late == "yes")
                                                 <span class="badge badge-danger">Late</span>
                                             @else
                                                 <span class="badge badge-info">in Time</span>
                                             @endif
 
                                         </td>
-                                        <td>{{$row->amount}}</td>
-                                        <td>{{$row->salary_status}}</td>
-                                        <td>{{$row->status}}</td>
-                                        <td>{{ $row->date."-".$row->in_time  }}</td>
-                                        <td>{{ $row->date."-".$row->out_time  }}</td>
-                                        <td>{{$row->day}}</td>
+
+                                        <td>
+                                            @if($row->present_status == "present")
+                                                <span class="badge badge-info">Present</span>
+                                            @else
+                                                <span class="badge badge-danger">Absence</span>
+                                            @endif
+                                        </td>
+                                        <td>{{$row->total_hours}}</td>
+                                        <td>
+                                            @if($row->in_time == null)
+                                                <span class="badge badge-danger">take Leave</span>
+                                            @else
+                                                {{ $row->in_time }}
+                                            @endif
+                                        </td>
+
+                                        <td>
+                                            @if($row->out_time == null)
+                                                <span class="badge badge-danger">forget to Exist</span>
+                                            @else
+                                                {{ $row->out_time }}
+                                            @endif
+
+                                        </td>
+
+                                        <td>{{ $row->day }}</td>
+                                        <td>{{ $row->date }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
+                                <tfooter>
+                                    <tr>
+                                        <th width="3%" class="text-center">SL</th>
+                                        <th width="15%" class="text-center">Name</th>
+                                        <th width="15%" class="text-center">Late comers</th>
+                                        <th width="15%" class="text-center">Attendance</th>
+                                        <th width="10%" class="text-center">Total Work</th>
+                                        <th width="10%" class="text-center">Check In</th>
+                                        <th width="10%" class="text-center">Check Out</th>
+                                        <th width="10%" class="text-center">Day</th>
+                                        <th width="15%" class="text-center">Date</th>
+                                    </tr>
+                                </tfooter>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
 @endsection
-@section("backendScript")
+        @section("backendScript")
             <script>
-                $('input[name="daterangepicker-default"]').daterangepicker(
-                    {
-                        format: 'YYYY-MM-DD',
-                        startDate: '2013-01-01',
-                        endDate: '2013-12-31'
-                    },
-                    function(start, end, label) {
-                        alert('A date range was chosen: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-                    }
-                );
+                $(document).ready( function () {
+                    $('#myTable').DataTable();
+                } );
             </script>
 @endsection
+
+

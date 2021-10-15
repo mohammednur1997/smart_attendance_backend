@@ -21,10 +21,10 @@
 
         <div class="col-sm-6 col-md-3">
             <div class="panel profit db mbm">
-                <div class="panel-body"><p class="icon"><i class="icon fa fa-shopping-cart"></i></p>
-                    <h4 class="value"><span>20</span><span></span></h4>
+                <div class="panel-body"><p class="icon"><i class="icon fa fa-user"></i></p>
+                    <h4 class="value"><span>{{ $total_employee }}</span><span></span></h4>
 
-                    <p class="description">Total Project</p>
+                    <p class="description">Total Employee</p>
 
                     <div class="progress progress-sm mbn">
                         <div role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
@@ -37,11 +37,11 @@
 
         <div class="col-sm-6 col-md-3">
             <div class="panel income db mbm">
-                <div class="panel-body"><p class="icon"><i class="icon fa fa-money"></i></p>
+                <div class="panel-body"><p class="icon"><i class="icon fa fa-pause"></i></p>
                     <h4
-                        class="value"><span>23</span><span></span></h4>
+                        class="value"><span>{{ $vacation }}</span><span></span></h4>
 
-                    <p class="description">Total Services</p>
+                    <p class="description">Vacation Request</p>
 
                     <div class="progress progress-sm mbn">
                         <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
@@ -54,10 +54,10 @@
 
         <div class="col-sm-6 col-md-3">
             <div class="panel task db mbm">
-                <div class="panel-body"><p class="icon"><i class="icon fa fa-signal"></i></p>
-                    <h4 class="value"><span>30</span></h4>
+                <div class="panel-body"><p class="icon"><i class="icon fa fa-cut"></i></p>
+                    <h4 class="value"><span>{{ $deduction }}</span></h4>
 
-                    <p class="description">Total Member</p>
+                    <p class="description">Total Deduction</p>
 
                     <div class="progress progress-sm mbn">
                         <div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
@@ -70,10 +70,10 @@
 
         <div class="col-sm-6 col-md-3">
             <div class="panel visit db mbm">
-                <div class="panel-body"><p class="icon"><i class="icon fa fa-group"></i></p><h4
-                        class="value"><span>50</span></h4>
+                <div class="panel-body"><p class="icon"><i class="icon fa fa-plus"></i></p><h4
+                        class="value"><span>{{ $reward }}</span></h4>
 
-                    <p class="description">Total Clients</p>
+                    <p class="description">Total Reward</p>
 
                     <div class="progress progress-sm mbn">
                         <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
