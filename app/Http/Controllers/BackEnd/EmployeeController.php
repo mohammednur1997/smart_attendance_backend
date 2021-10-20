@@ -23,18 +23,27 @@ class EmployeeController extends Controller
 
     public function store(Request $request){
 
-      /*  $request->validate([
+       $request->validate([
             'name' => 'required|max:255',
-            'company' => 'required|max:255',
-            'comment' => 'required|max:255',
-            'cl_image' => 'image',
-        ],[
-                "name.required"=>"Client Name is Required",
-                "company.required"=>"Client Company is Required",
-                "comment.required"=>"Client Comment is Required",
-                "cl_image.image"=>"Main Image Extension Must be: .jpg, .png, .jpeg, .gif",
-            ]
-        );*/
+            'phone' => 'required',
+            'email' => 'required|unique:employees',
+            'salary' => 'required|max:255',
+            'work_hour' => 'required',
+            'start_work' => 'required',
+            'end_work' => 'required',
+            'password' => 'required',
+            'employee_image' => 'image',
+        ]);
+
+       $checkNumber =  preg_match('/^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/', $request->phone);
+       if (!$checkNumber){
+           $notification=array(
+               'message'=>'Enter a valid number with country code',
+               'alert-type'=>'error'
+           );
+           return Redirect()->back()->with($notification);
+       }
+
 
         $employee = new Employee();
         $employee->name = $request->name;
@@ -48,6 +57,7 @@ class EmployeeController extends Controller
         $employee->start_work = $request->start_work;
         $employee->end_work = $request->end_work;
         $employee->join_date = $request->join_date;
+        $employee->password = $request->password;
 
         if ($request->salary_due){
             $employee->salary_due = $request->salary_due;

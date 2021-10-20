@@ -77,7 +77,7 @@
                                     <th width="15%" class="text-center">Name</th>
                                     <th width="15%" class="text-center">Late comers</th>
                                     <th width="15%" class="text-center">Attendance</th>
-                                    <th width="10%" class="text-center">Total Work</th>
+                                    <th width="10%" class="text-center">Total Work Hours</th>
                                     <th width="10%" class="text-center">Check In</th>
                                     <th width="10%" class="text-center">Check Out</th>
                                     <th width="10%" class="text-center">Day</th>

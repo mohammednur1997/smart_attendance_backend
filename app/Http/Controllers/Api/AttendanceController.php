@@ -50,8 +50,6 @@ class AttendanceController extends Controller
         }else{
             return $this->storeAttendance($request);
         }
-
-
     }
 
     public function storeAttendance($request){
@@ -142,6 +140,56 @@ class AttendanceController extends Controller
             ->get();
 
         return view("Backend.pages.report.index", compact("record"));
+
+    }
+
+    public function CheckLogin(Request $request){
+         $email = $request->email;
+         $password = $request->password;
+         $checkLogin = Employee::where(["email"=> $email, "password"=> $password])->first();
+            try {
+
+                if ($checkLogin) {
+                    return response([
+                        "result"=> "pass",
+                        "message" => "Successfully Login",
+                        "employee" => $checkLogin
+                    ], 200);
+                }
+
+            }catch(Exception $exception){
+                return response([
+                    "message"=>$exception->getMessage()
+                ],200);
+            }
+
+            return response([
+                "result"=> "fail",
+                "message"=>"Invalid Email Or Password"
+            ],200);
+
+    }
+
+    public function GetAttendanceById(Request $request, $id){
+        $attendance = DB::table("records")->where("employee_id", $id)->get();
+        return response([
+            "attendance"=> $attendance,
+        ],200);
+    }
+
+    public function getDataByDate(Request $request, $id){
+
+        $EmployeeData = DB::table('employees')
+            ->where(["employees.id" => $id, "salary.date" => "20-5-2021", "deductions.date" => "20-5-2021", "rewards.date" => "20-5-2021"])
+            ->join('salary', 'employees.id', '=', 'salary.employee_id')
+            ->join('deductions', 'employees.id', '=', 'deductions.employee_id')
+            ->join('rewards', 'employees.id', '=', 'rewards.employee_id')
+            ->select('employees.*', 'salary.salary_status', "deductions.dd_amount", "rewards.re_amount")
+            ->first();
+
+        return response([
+            "EmployeeData"=> $EmployeeData,
+        ],200);
 
     }
 

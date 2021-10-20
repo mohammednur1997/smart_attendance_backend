@@ -92,7 +92,7 @@
         </div>
 @endsection
 
-        @section("script")
+        @section("backendScript")
             <script>
                 $(document).ready(function() {
 

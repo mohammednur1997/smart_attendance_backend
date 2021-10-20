@@ -30,14 +30,55 @@ class RolePermissionSeeder extends Seeder
              ],
 
              [
-                 "group_name"=> "project",
+                 "group_name"=> "employee",
                  "permissions"=>[
-                     //project permission
-                     'project.create',
-                     'project.view',
-                     'project.approve',
-                     'project.edit',
-                     'project.delete',
+                     //employee permission
+                     'employee.create',
+                     'employee.view',
+                     'employee.approve',
+                     'employee.edit',
+                     'employee.delete',
+                 ]
+             ],
+             [
+                 "group_name"=> "salary",
+                 "permissions"=>[
+                     //salary permission
+                     'salary.create',
+                     'salary.view',
+                     'salary.approve',
+                     'salary.edit',
+                     'salary.delete',
+                 ]
+             ],
+             [
+                 "group_name"=> "attendance",
+                 "permissions"=>[
+                     //attendance permission
+                     'attendance.create',
+                     'attendance.view',
+                     'attendance.approve',
+                     'attendance.edit',
+                     'attendance.delete',
+                 ]
+             ],
+
+             [
+                 "group_name"=> "vacation",
+                 "permissions"=>[
+                     //vacation permission
+                     'vacation.view',
+                     'vacation.approve',
+                 ]
+             ],
+             [
+                 "group_name"=> "notification",
+                 "permissions"=>[
+                     //notification permission
+                     'notification.create',
+                     'notification.view',
+                     'notification.edit',
+                     'notification.delete',
                  ]
              ],
 
@@ -62,6 +103,7 @@ class RolePermissionSeeder extends Seeder
                      'role.approve',
                      'role.edit',
                      'role.delete',
+                     'role.update',
                  ]
              ],
 

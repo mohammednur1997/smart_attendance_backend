@@ -35,8 +35,9 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Mobile Number</label>
-                                            <input name="phone" type="text" placeholder="Mobile Number" class="form-control"/>
+                                                for="inputFirstName" class="control-label">Mobile Number
+                                                <span class='require'>*</span></label>
+                                            <input name="phone" type="text" placeholder="Mobile Number" class="form-control" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +48,7 @@
                                         <div class="form-group has-success">
                                             <label for="inputFirstName" class="control-label">Email
                                                 <span class='require'>*</span></label>
-                                            <input name="email" type="text" placeholder="Employee Email" class="form-control" required/>
+                                            <input name="email" type="email" placeholder="Employee Email" class="form-control" required/>
                                         </div>
                                     </div>
 
@@ -201,6 +202,14 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Salary Due Date (optional)</label>
                                             <input name="salary_due" type="text" placeholder="Salary Due Date" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Password
+                                                <span class='require'>*</span></label>
+                                            <input name="password" type="text" placeholder="Password" class="form-control" required/>
                                         </div>
                                     </div>
                                 </div>

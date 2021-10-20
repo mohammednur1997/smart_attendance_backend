@@ -23,6 +23,11 @@ Route::get("/users", "AuthController@users")->middleware("auth:api");*/
 //order Route..
 /*Route::get("/myCart", "Api\OrderController@myCart")->middleware("auth:api");*/
 Route::post("/attendance", "Api\AttendanceController@attendance");
+Route::post("/login", "Api\AttendanceController@CheckLogin");
+Route::get("/employee/{id}", "Api\AttendanceController@getById");
+Route::get("/GetAttendanceById/{id}", "Api\AttendanceController@GetAttendanceById");
+Route::get("/getDataByDate/{id}", "Api\AttendanceController@getDataByDate");
+
 
 /*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/
 
