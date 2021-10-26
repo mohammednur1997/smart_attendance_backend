@@ -114,8 +114,8 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Paid At (date)
                                                 <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker" data-date-format="dd/mm/yyyy"
-                                                   placeholder="dd/mm/yyyy"
+                                            <input type="text" id="datepicker" data-date-format="yyyy-mm-dd"
+                                                   placeholder="yyyy-mm-dd"
                                                    class="datepicker-default form-control" required/>
                                         </div>
                                     </div>

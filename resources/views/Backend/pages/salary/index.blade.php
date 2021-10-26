@@ -45,26 +45,22 @@
                                     <th width="10%">Name</th>
                                     <th width="10%">Email</th>
                                     <th width="10%">Phone</th>
-                                    <th width="10%">Image</th>
                                     <th width="10%">Net Salary</th>
                                     <th width="10%">Gross Salary</th>
                                     <th width="10%">Deduction</th>
                                     <th width="10%">Status</th>
                                     <th width="10%">Job Position</th>
-                                    <th width="10%">Work Hour</th>
+                                    <th width="5%">Work Hour</th>
                                     <th width="20%">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($employee as $row)
                                     <tr>
-                                        <td>{{$loop->index}}</td>
+                                        <td>{{$loop->index+1}}</td>
                                         <td>{{$row->name}}</td>
                                         <td>{{$row->email}}</td>
                                         <td>{{$row->phone}}</td>
-                                        <td>
-                                            <img src="{{ asset('image/employee/image/'.$row->image) }}" alt="image" height="50px" width="50px">
-                                        </td>
                                         <td>{{$row->salary}}</td>
                                         <td>{{$row->salary}}</td>
                                         <td>{{$row->salary}}</td>

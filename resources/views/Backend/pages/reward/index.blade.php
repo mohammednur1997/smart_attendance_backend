@@ -50,8 +50,8 @@
                                         <div class="form-group has-success"><label
                                                 for="title" class="control-label">Date
                                                 <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker" name="reward_date" data-date-format="dd/mm/yyyy"
-                                                   placeholder="dd/mm/yyyy"
+                                            <input type="text" id="datepicker" name="reward_date" data-date-format="yyyy-mm-dd"
+                                                   placeholder="yyyy-mm-dd"
                                                    class="datepicker-default form-control" required/>
                                         </div>
                                     </div>

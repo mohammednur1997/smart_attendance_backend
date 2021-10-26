@@ -50,8 +50,8 @@
                                         <div class="form-group has-success"><label
                                                 for="title" class="control-label">Date
                                                 <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker" name="deduction_date" data-date-format="dd/mm/yyyy"
-                                                   placeholder="dd/mm/yyyy"
+                                            <input type="text" id="datepicker" name="deduction_date" data-date-format="yyyy-mm-dd"
+                                                   placeholder="yyyy-mm-dd"
                                                    class="datepicker-default form-control" required/>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                 <tr>
                                     <td>{{$loop->index+1}}</td>
                                     <td>{{$row->name}}</td>
-                                    <td>{{$row->amount}}</td>
+                                    <td>{{$row->dd_amount}}</td>
                                     <td>{!! $row->reason !!}</td>
                                     <td>
                                         <a href={{route("salary.deduction.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i

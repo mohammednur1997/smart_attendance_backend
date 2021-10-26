@@ -23,10 +23,19 @@ Route::get("/users", "AuthController@users")->middleware("auth:api");*/
 //order Route..
 /*Route::get("/myCart", "Api\OrderController@myCart")->middleware("auth:api");*/
 Route::post("/attendance", "Api\AttendanceController@attendance");
+
 Route::post("/login", "Api\AttendanceController@CheckLogin");
 Route::get("/employee/{id}", "Api\AttendanceController@getById");
 Route::get("/GetAttendanceById/{id}", "Api\AttendanceController@GetAttendanceById");
+
 Route::get("/getDataByDate/{id}", "Api\AttendanceController@getDataByDate");
+
+Route::get("/vacation/{id}", "Api\VacationController@vacation");
+Route::get("/vacationByID/{id}", "Api\VacationController@vacationByID");
+Route::post("/vacation/store", "Api\VacationController@store");
+Route::get("/vacation/delete/{id}", "Api\VacationController@delete");
+
+Route::post("/search/front", "Api\AttendanceController@frontSearch");
 
 
 /*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/

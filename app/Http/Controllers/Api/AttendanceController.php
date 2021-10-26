@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Deduction;
 use App\Model\Employee;
 use App\Model\Record;
+use App\Model\Reward;
+use App\Model\Salary;
 use App\Model\Vacation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -173,22 +176,52 @@ class AttendanceController extends Controller
     public function GetAttendanceById(Request $request, $id){
         $attendance = DB::table("records")->where("employee_id", $id)->get();
         return response([
+            "result"=> "pass",
             "attendance"=> $attendance,
         ],200);
     }
 
     public function getDataByDate(Request $request, $id){
 
-        $EmployeeData = DB::table('employees')
-            ->where(["employees.id" => $id, "salary.date" => "20-5-2021", "deductions.date" => "20-5-2021", "rewards.date" => "20-5-2021"])
-            ->join('salary', 'employees.id', '=', 'salary.employee_id')
-            ->join('deductions', 'employees.id', '=', 'deductions.employee_id')
-            ->join('rewards', 'employees.id', '=', 'rewards.employee_id')
-            ->select('employees.*', 'salary.salary_status', "deductions.dd_amount", "rewards.re_amount")
-            ->first();
+        $start = Carbon::now()->startOfMonth()->toDateString();
+        $end =  Carbon::now()->endOfMonth()->toDateString();
+
+        $salary = Salary::where("employee_id", $id)->whereBetween('date', [$start, $end])->pluck("salary_status");
+        $deduction = Deduction::where("employee_id", $id)->whereBetween('date', [$start, $end])->pluck("dd_amount");
+        $reward = Reward::where("employee_id", $id)->whereBetween('date', [$start, $end])->pluck("re_amount");
+
 
         return response([
-            "EmployeeData"=> $EmployeeData,
+            "salary"=> $salary,
+            "deduction"=> $deduction,
+            "reward"=> $reward,
+        ],200);
+
+    }
+
+    public function frontSearch(Request $request){
+
+        $record = DB::table('records')
+            ->where(function($q) use ($request) {
+                if(!empty($request->date && $request->date === "month")) {
+                    $start= Carbon::now()->startOfMonth()->toDateString();
+                    $end=  Carbon::now()->endOfMonth()->toDateString();
+                    $q->orWhereBetween('date', [$start, $end]);
+                }
+
+                if(!empty($request->date)) {
+                    $q->orWhere('date', $request->date);
+                }
+
+                if(!empty($request->present)) {
+                    $q->orWhere('present_status', $request->present);
+                }
+            })
+             ->where('employee_id', $request->employee_id)
+            ->get();
+
+        return response([
+            "record"=> $record,
         ],200);
 
     }

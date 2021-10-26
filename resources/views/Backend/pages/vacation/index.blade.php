@@ -39,17 +39,17 @@
                                 <tbody>
                                 @foreach($vacation as $row)
                                     <tr>
-                                        <td>{{$loop->index}}</td>
+                                        <td>{{$loop->index+1}}</td>
                                         <td>{{$row->name}}</td>
                                         <td>{{$row->start_date}}</td>
                                         <td>{{$row->end_date}}</td>
                                         <td>{{$row->reason}}</td>
                                         <td>
-                                            @if($row->status == 0)
+                                            @if($row->status == "pending")
                                                 <span class="badge badge-danger">Pending</span>
-                                            @elseif($row->status == 1)
+                                            @elseif($row->status == "approve")
                                                 <span class="badge badge-success">Accept</span>
-                                            @elseif($row->status == 2)
+                                            @elseif($row->status == "reject")
                                                 <span class="badge badge-danger">Reject</span>
                                             @endif
                                         </td>

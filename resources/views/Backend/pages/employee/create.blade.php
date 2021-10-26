@@ -121,13 +121,12 @@
                                                 <span class='require'>*</span></label>
                                             <select id="gender" name="gender" class="form-control" required>
                                                 <option value="0">===Select Gender===</option>
-                                                <option value="1">Male</option>
-                                                <option value="2">Female</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-
 
 
                                 <div class="row">
@@ -160,14 +159,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputBirthday" class="control-label">image(600 * 600)</label>
-                                            <input name="employee_image" type="file" class="form-control"/>
+                                            <input name="employee_image" type="file" class="form-control" required/>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Birthday</label>
-                                           <input type="text" name="birthday" id="datepicker" data-date-format="dd/mm/yyyy"
+                                           <input type="text" name="birthday" id="datepicker" data-date-format="dd-mm-yyyy"
                                                                          placeholder="dd/mm/yyyy"
                                                                          class="datepicker-default form-control"/>
 
@@ -190,7 +189,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Join Date
                                                 <span class='require'>*</span></label>
-                                            <input type="text" name="join_date" id="datepicker2" data-date-format="dd/mm/yyyy"
+                                            <input type="text" name="join_date" id="datepicker2" data-date-format="dd-mm-yyyy"
                                                    placeholder="dd/mm/yyyy"
                                                    class="datepicker-default form-control"/>
                                         </div>
@@ -213,8 +212,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
 
                             <div class="form-actions text-left pal">
                                 <button type="submit" class="btn btn-primary">Submit</button>

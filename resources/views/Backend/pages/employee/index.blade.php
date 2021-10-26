@@ -45,12 +45,12 @@
                                 <tbody>
                                 @foreach($employee as $row)
                                     <tr>
-                                        <td>{{$loop->index}}</td>
+                                        <td>{{$loop->index+1}}</td>
                                         <td>{{$row->name}}</td>
                                         <td>{{$row->email}}</td>
                                         <td>{{$row->phone}}</td>
                                         <td>
-                                            <img src="{{ asset('image/employee/image/'.$row->image) }}" alt="image" height="50px" width="50px">
+                                            <img src="{{ asset('image/employee/'.$row->image) }}" alt="image" height="80px" width="80px">
                                         </td>
                                         <td>{{$row->salary}}</td>
                                         <td>{{$row->job_position}}</td>
