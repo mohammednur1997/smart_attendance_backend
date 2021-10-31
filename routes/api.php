@@ -22,7 +22,8 @@ Route::get("/users", "AuthController@users")->middleware("auth:api");*/
 
 //order Route..
 /*Route::get("/myCart", "Api\OrderController@myCart")->middleware("auth:api");*/
-Route::post("/attendance", "Api\AttendanceController@attendance");
+Route::post("/attendance/checkIn", "Api\AttendanceController@checkIn");
+Route::post("/attendance/checkOut", "Api\AttendanceController@checkOut");
 
 Route::post("/login", "Api\AttendanceController@CheckLogin");
 Route::get("/employee/{id}", "Api\AttendanceController@getById");

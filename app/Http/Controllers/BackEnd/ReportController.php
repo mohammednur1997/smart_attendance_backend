@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Controllers\Controller;
+use App\Model\Record;
 use Illuminate\Http\Request;
 use DB;
 
@@ -24,23 +25,19 @@ class ReportController extends Controller
         }
 
     public function search(Request $request){
+
         $record = DB::table('records')
-            ->join('employees', 'records.employee_id', '=', 'employees.id')
-            ->select('records.*', 'employees.*')
             ->where(function($q) use ($request) {
                 if(!empty($request->late)) {
-                    $q->orWhere("late",'LIKE','%'.$request->late.'%');
+                    $q->orWhere("late", $request->late);
                 }
                 if(!empty($request->attendance)) {
-                    $q->orWhere('present_status','LIKE','%'.$request->attendance.'%');
-                }
-                if(!empty($request->date)) {
-                    $q->orWhere('date','LIKE','%'.$request->date.'%');
+                    $q->orWhere('present_status', $request->attendance);
                 }
 
             })
-            /*->where('site', $site_code)*/
             ->get();
+
 
         return view("Backend.pages.report.index", compact("record"));
 

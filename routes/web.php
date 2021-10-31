@@ -127,7 +127,7 @@ Route::get('/employee/record', "BackEnd\RecordController@index")->name("employee
 
 //Employee Reports ar jonno route
 Route::get('/employee/report', "BackEnd\ReportController@index")->name("employee.report");
-Route::post("/attendance/search", "BackEnd\ReportController@search")->name("search");
+Route::get("/attendance/search", "BackEnd\ReportController@search")->name("search");
 
 
 

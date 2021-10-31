@@ -122,8 +122,8 @@
                                                 <span class='require'>*</span></label>
                                             <select id="gender" name="gender" class="form-control" required>
                                                 <option value="0">===Select Gender===</option>
-                                                <option value="1" {{$employee->gender == "Male" ? "selected":"" }}>Male</option>
-                                                <option value="2" {{$employee->gender == "Female" ? "selected":"" }}>Female</option>
+                                                <option value="Male" {{$employee->gender == "Male" ? "selected":"" }}>Male</option>
+                                                <option value="Female" {{$employee->gender == "Female" ? "selected":"" }}>Female</option>
                                             </select>
                                         </div>
                                     </div>

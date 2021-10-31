@@ -24,7 +24,7 @@
                             <div class="caption">Employees Reports</div>
 
                             <div class="portlet-body pan">
-                                <form role="form" action="{{ route("search") }}" class="form-horizontal form-separated" method="post">
+                                <form role="form" action="{{ route("search") }}" class="form-horizontal form-separated">
                                     @csrf
                                     <div class="form-body pdl">
 
@@ -33,6 +33,7 @@
                                             <div class="col-md-3">
                                                 <label for="selGender" class="control-label">Late comers </label>
                                                 <select id="late" name="late" class="form-control">
+                                                    <option value="">====Choose Late commer====</option>
                                                     <option value="yes">Late</option>
                                                     <option value="no">In Time</option>
                                                 </select>
@@ -41,20 +42,21 @@
                                             <div class="col-md-3">
                                                 <label for="selGender" class="control-label">Attendance</label>
                                                 <select id="attendance" name="attendance" class="form-control">
+                                                    <option value="">====Choose Attendance====</option>
                                                     <option value="present">Present</option>
                                                     <option value="absence">Absence</option>
                                                 </select>
                                             </div>
 
-                                            <div class="col-md-3">
+                                          {{--  <div class="col-md-3">
                                                 <label for="date" class="control-label">Date</label>
                                                 <select id="date" name="date" class="form-control">
-                                                    <option value="20/15/2021">Today</option>
-                                                    <option value="20/15/2021">This Week</option>
-                                                    <option value="20/15/2021">This Month</option>
-                                                    <option value="20/15/2021">This Year</option>
+                                                    <option value="">====Choose Date====</option>
+                                                    <option value={{ date('D') }}>Today</option>
+                                                    <option value={{ date('M') }}>This Month</option>
+                                                    <option value={{ date('Y') }}>This Year</option>
                                                 </select>
-                                            </div>
+                                            </div>--}}
 
                                             <div class="col-md-3">
                                                 <div class="form-actions text-left pal">
@@ -73,11 +75,10 @@
                             <table class="text-center table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
                                 <thead class="text-center">
                                 <tr>
-                                    <th width="3%" class="text-center">SL</th>
                                     <th width="15%" class="text-center">Name</th>
                                     <th width="15%" class="text-center">Late comers</th>
                                     <th width="15%" class="text-center">Attendance</th>
-                                    <th width="10%" class="text-center">Total Work Hours</th>
+                                  {{--  <th width="10%" class="text-center">Total Work Hours</th>--}}
                                     <th width="10%" class="text-center">Check In</th>
                                     <th width="10%" class="text-center">Check Out</th>
                                     <th width="10%" class="text-center">Day</th>
@@ -87,8 +88,9 @@
                                 <tbody>
                                 @foreach($record as $row)
                                     <tr>
-                                        <td>{{$loop->index}}</td>
-                                        <td>{{$row->name}}</td>
+                                        <td>
+                                            {{App\Model\Employee::where("id", $row->employee_id)->pluck('name')->first()}}
+                                        </td>
                                         <td>
                                             @if($row->late == "yes")
                                                 <span class="badge badge-danger">Late</span>
@@ -105,7 +107,7 @@
                                                 <span class="badge badge-danger">Absence</span>
                                             @endif
                                         </td>
-                                        <td>{{$row->total_hours}}</td>
+                                     {{--   <td>{{$row->total_hours}}</td>--}}
                                         <td>
                                             @if($row->in_time == null)
                                                 <span class="badge badge-danger">take Leave</span>
@@ -128,19 +130,18 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-                                <tfooter>
+                                <tfoot id="tfoot">
                                     <tr>
-                                        <th width="3%" class="text-center">SL</th>
                                         <th width="15%" class="text-center">Name</th>
                                         <th width="15%" class="text-center">Late comers</th>
                                         <th width="15%" class="text-center">Attendance</th>
-                                        <th width="10%" class="text-center">Total Work</th>
+                                       {{-- <th width="10%" class="text-center">Total Work</th>--}}
                                         <th width="10%" class="text-center">Check In</th>
                                         <th width="10%" class="text-center">Check Out</th>
                                         <th width="10%" class="text-center">Day</th>
                                         <th width="15%" class="text-center">Date</th>
                                     </tr>
-                                </tfooter>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -152,9 +153,36 @@
 @endsection
         @section("backendScript")
             <script>
-                $(document).ready( function () {
-                    $('#myTable').DataTable();
-                } );
+               /* $(document).ready( function () {
+                   $('#myTable').DataTable();
+                } );*/
+
+               $(document).ready(function() {
+                   // Setup - add a text input to each footer cell
+                   $('#myTable tfoot th').each( function () {
+                       var title = $(this).text();
+                       $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                   } );
+
+                   // DataTable
+                   var table = $('#myTable').DataTable({
+                       initComplete: function () {
+                           // Apply the search
+                           this.api().columns().every( function () {
+                               var that = this;
+
+                               $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                                   if ( that.search() !== this.value ) {
+                                       that
+                                           .search( this.value )
+                                           .draw();
+                                   }
+                               } );
+                           } );
+                       }
+                   });
+
+               } );
             </script>
 @endsection
 

@@ -16,7 +16,7 @@ use DB;
 class AttendanceController extends Controller
 {
     //
-    public function attendance(Request $request){
+    public function checkIn(Request $request){
 
         // check day off
         $checkOffDay = Employee::where(["id" => $request->employee_id])->first();
@@ -30,7 +30,7 @@ class AttendanceController extends Controller
             ->first();
 
         //Check record
-        $CheckRecord = DB::table("records")->where(["employee_id"=> $request->employee_id, "date"=> $request->date])->first();
+      /*  $CheckRecord = DB::table("records")->where(["employee_id"=> $request->employee_id, "date"=> $request->date])->first();*/
 
         if ($checkDay){
             return response([
@@ -48,14 +48,20 @@ class AttendanceController extends Controller
                     "message" => "You will get Leave for this day",
                 ], 200);
             }
-        }elseif ($CheckRecord){
-            return $this->updateAttendance($CheckRecord, $request);
         }else{
             return $this->storeAttendance($request);
         }
     }
 
     public function storeAttendance($request){
+        $CheckRecord = DB::table("records")->where(["employee_id"=> $request->employee_id, "date"=> $request->date])->first();
+        if ($CheckRecord){
+            return response([
+                "result"=> "fail",
+                "message" => "Already get Attendance",
+            ], 200);
+        }
+
         $employee = Employee::where("id",  $request->employee_id)->first();
 
         $record = new Record();
@@ -91,23 +97,22 @@ class AttendanceController extends Controller
                 ], 200);
             }
 
-
-
-
-
     }
 
-    public function updateAttendance($CheckRecord, $request){
-        $CheckRecord->out_time = $request->out_time;
-        $CheckRecord->check_out = $request->date." ".$request->out_time;
+    public function checkOut(Request $request){
+        //Check record
+        $CheckRecord = DB::table("records")->where(["employee_id"=> $request->employee_id, "date"=> $request->date])->first();
 
+        $check_out = $request->date." ".$request->out_time;
         $start = Carbon::parse($CheckRecord->in_time);
         $end = Carbon::parse($request->out_time);
 
         $hours = $end->diffInHours($start);
-        $CheckRecord->total_hours = $hours;
 
-        $result = DB::table("records")->update(["out_time" => $request->out_time, "total_hours"=>$hours ]);
+
+        /*$date = Carbon::now()->toDateString();*/
+
+        $result = DB::table("records")->where(["employee_id"=> $request->employee_id, "date"=> $request->date])->update(["out_time"=> $request->out_time, "total_hours"=>$hours, "check_out"=> $check_out]);
 
         if ($result){
             return response([

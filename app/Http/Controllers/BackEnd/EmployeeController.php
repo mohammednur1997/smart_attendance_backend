@@ -111,7 +111,6 @@ class EmployeeController extends Controller
             'work_hour' => 'required',
             'start_work' => 'required',
             'end_work' => 'required',
-            'employee_image' => 'required|image',
         ]);
 
         $checkNumber =  preg_match('/^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/', $request->phone);
