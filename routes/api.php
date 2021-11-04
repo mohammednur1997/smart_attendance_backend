@@ -38,6 +38,8 @@ Route::get("/vacation/delete/{id}", "Api\VacationController@delete");
 
 Route::post("/search/front", "Api\AttendanceController@frontSearch");
 
+Route::post("/changePass", "Api\ResetPasswordController@ChangePass");
+
 
 /*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/
 
