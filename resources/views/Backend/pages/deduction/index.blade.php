@@ -30,7 +30,8 @@
                                         <div class="form-group has-success"><label
                                                 for="title" class="control-label">Employee Name
                                                 <span class='require'>*</span></label>
-                                            <input name="name" type="text" readonly value={{ $employee->name }} class="form-control" required/>
+                                            <input name="name" type="text" readonly value="{{ $employee->name }}" class="form-control"/>
+                                            <input name="employee_id" type="hidden"  value="{{ $employee->id }}" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +62,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description" class="control-label">Reason</label>
-                                            <textarea name="amount" rows="6" class="ckeditor form-control" required></textarea>
+                                            <textarea name="reason" rows="6" class="ckeditor form-control" required></textarea>
                                         </div>
                                     </div>
                                 </div>

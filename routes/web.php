@@ -95,6 +95,7 @@ Route::get('/salary', "BackEnd\SalarisController@all")->name("salary");
 Route::get('/salary/edit/{id}', "BackEnd\SalarisController@edit")->name("salary.edit");
 Route::post('/salary/update/{id}', "BackEnd\SalarisController@update")->name("salary.update");
 Route::get('/salary/delete/{id}', "BackEnd\SalarisController@delete")->name("salary.delete");
+Route::get('/salary/show', "BackEnd\SalarisController@show")->name("salary.show");
 
 //Salary Deduction ar jonno route
 Route::get('/salary/deduction/{id}', "BackEnd\DeductionController@index")->name("salary.deduction");

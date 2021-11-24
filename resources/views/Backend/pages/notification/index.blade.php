@@ -30,7 +30,7 @@
                                         <div class="form-group has-success"><label
                                                 for="title" class="control-label">Title
                                                 <span class='require'>*</span></label>
-                                            <input name="name" type="text"  value="Enter Title" class="form-control" required/>
+                                            <input name="title" type="text"  value="" placeholder="Enter Title" class="form-control" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description" class="control-label">Message</label>
-                                            <textarea name="amount" rows="6" class="ckeditor form-control" ></textarea>
+                                            <textarea name="message" rows="6" class="ckeditor form-control" ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group has-success"><label
                                                 for="title" class="control-label">URl</label>
-                                            <input name="name" type="text"  value="Enter The Url" class="form-control" />
+                                            <input name="url" type="text"  value="" placeholder="Enter The Url" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -145,6 +145,7 @@
                     $( "#datepicker" ).datepicker();
                 } );
             </script>
+
 
      @endsection
 

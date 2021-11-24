@@ -28,14 +28,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Employee Name</label>
-                                            <input name="name" readonly type="text" value={{ $employee->name }} class="form-control" required/>
+                                            <input name="name" readonly type="text" value="{{ $employee->name }}" class="form-control" required/>
+                                            <input name="employee_id"  type="hidden" value="{{ $employee->id }}" class="form-control"/>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Mobile Number</label>
-                                            <input name="phone" readonly type="text" value={{ $employee->phone }} class="form-control"/>
+                                            <input name="phone" readonly type="text" value="{{ $employee->phone }}" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
@@ -45,14 +46,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group has-success">
                                             <label for="inputFirstName" class="control-label">Email</label>
-                                            <input name="email" readonly type="text" value={{ $employee->email }} class="form-control" required/>
+                                            <input name="email" readonly type="text" value="{{ $employee->email }}" class="form-control" required/>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
                                                 for="salary" class="control-label">Salary Per Month</label>
-                                            <input name="salary" readonly type="text" value={{ $employee->salary }} class="form-control" required/>
+                                            <input name="salary" readonly type="text" value="{{ $employee->salary }}" class="form-control" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -61,14 +62,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group has-success">
                                             <label for="inputFirstName" class="control-label">Job Position</label>
-                                            <input name="job_position" readonly type="text" value={{ $employee->job_position }} class="form-control" required/>
+                                            <input name="job_position" readonly type="text" value="{{ $employee->job_position }}" class="form-control" required/>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Weekly Off Day</label>
-                                            <input name="day_off" readonly type="text" value={{ $employee->day_off }} class="form-control"/>
+                                            <input name="day_off" readonly type="text" value="{{ $employee->day_off }}" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
@@ -91,12 +92,54 @@
                                     </div>
                                 </div>
 
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Calculate Salary
-                                                <span class='require'>(Based On Attendance/Absence)</span></label>
-                                            <input name="birthday" type="text" value="" class="form-control"/>
+                                                for="inputFirstName" class="control-label">Paid At (date)
+                                                <span class='require'>*</span></label>
+                                            <input type="text" id="datepicker" name="date" data-date-format="yyyy-mm-dd"
+                                                   placeholder="yyyy-mm-dd"
+                                                   class="datepicker-default form-control" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Present Day
+                                                <span class='require'>*</span></label>
+                                            <input name="present" type="text" value="{{ $present }}" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Absence Day
+                                                <span class='require'>*</span></label>
+                                            <input name="absence" type="text" value="{{ $absence }}" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Reward
+                                                <span class='require'>*</span></label>
+                                            <input name="reward" type="text" value="{{ $reward }}" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Deduction
+                                                <span class='require'>*</span></label>
+                                            <input name="deduction" type="text" value="{{ $deduction }}" class="form-control" readonly/>
                                         </div>
                                     </div>
 
@@ -104,21 +147,21 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Amount Paid
                                                 <span class='require'>*</span></label>
-                                            <input name="work_hour" type="text" value="" class="form-control" required/>
+                                            <input name="paid" type="text" value="" class="form-control" required/>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Paid At (date)
-                                                <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker" data-date-format="yyyy-mm-dd"
-                                                   placeholder="yyyy-mm-dd"
-                                                   class="datepicker-default form-control" required/>
+                                                for="inputFirstName" class="control-label">Calculate Salary
+                                                <span class='require'>(Based On Attendance/Absence)</span></label>
+                                            <input name="salary_amount" type="text" value="{{ $round_total }}" class="form-control"/>
                                         </div>
                                     </div>
+
                                 </div>
 
 

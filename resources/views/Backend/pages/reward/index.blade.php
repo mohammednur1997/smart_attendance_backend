@@ -30,7 +30,8 @@
                                         <div class="form-group has-success"><label
                                                 for="title" class="control-label">Employee Name
                                                 <span class='require'>*</span></label>
-                                            <input name="name" type="text" readonly value={{ $employee->name }} class="form-control" required/>
+                                            <input name="name" type="text" readonly value="{{ $employee->name }}" class="form-control" required/>
+                                            <input name="employee_id" type="hidden" value="{{ $employee->id }}" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +97,7 @@
                                 <tr>
                                     <td>{{$loop->index+1}}</td>
                                     <td>{{$row->name}}</td>
-                                    <td>{{$row->amount}}</td>
+                                    <td>{{$row->re_amount}}</td>
                                     <td>{!! $row->reason !!}</td>
                                     <td>
                                         <a href={{route("salary.reward.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
@@ -132,7 +133,8 @@
 
         </div>
         @endsection
-        @section("backendScript")
+
+@section("backendScript")
             <script>
                 $(document).ready( function () {
                     $('#myTable').DataTable();

@@ -6,8 +6,8 @@
             <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span
                     class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                     class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span
-                    class="logo-text"><img src={{asset("image/logos/". app_config("AppLogo"))}} width="150px" alt=""></span><span style="display: none" class="logo-text-icon">A</span></a>
+            <a id="logo" href="{{ route("deshboard") }}" class="navbar-brand"><span class="fa fa-rocket"></span><span
+                    class="logo-text" style="color: red">{{--<img src={{asset("image/logos/". app_config("AppLogo"))}} width="150px" alt="">--}} AzmiSoft</span><span style="display: none" class="logo-text-icon">A</span></a>
         </div>
         <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
             <ul class="nav navbar-nav    ">
@@ -27,7 +27,7 @@
                 <li id="topbar-chat" class="hidden-xs"><a href="javascript:void(0)" class="btn-chat"><i
                             class="fa fa-comments"></i><span class="badge badge-info">{{ DB::table("message")->get()->count() }}</span></a></li>
 
-                <li class="dropdown hidden-xs">
+              {{--  <li class="dropdown hidden-xs">
                     <!--BEGIN THEME SETTING-->
                     <a id="theme-setting" href="javascript:;"
                                                                             data-hover="dropdown" data-step="1"
@@ -43,7 +43,7 @@
                     </ul>
                     <!--END THEME SETTING-->
                 </li>
-
+--}}
 
             </ul>
         </div>
