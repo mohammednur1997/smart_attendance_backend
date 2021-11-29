@@ -78,14 +78,14 @@
                 </ul>
             </li>
 
-           {{-- <li  class={{ Route::is("notification") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+            <li  class={{ Route::is("notification") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
                         <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Notification</span><span class="fa arrow"></span></a>
+                    </i><span class="menu-title">Message</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("notification")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manege Notification</span></a></li>
+                                class="submenu-title">Manege Message</span></a></li>
                 </ul>
-            </li>--}}
+            </li>
 
 
 

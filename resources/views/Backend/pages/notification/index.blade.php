@@ -27,40 +27,33 @@
                             <div class="form-body pal">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group has-success"><label
-                                                for="title" class="control-label">Title
+                                        <div class="form-group">
+                                            <label for="name" class="control-label">Employee Name
                                                 <span class='require'>*</span></label>
-                                            <input name="title" type="text"  value="" placeholder="Enter Title" class="form-control" required/>
+                                            <select id="employee_id" name="employee_id" class="form-control" required>
+                                                <option value="0">===Select Employee===</option>
+                                                @foreach(App\Model\Employee::all() as $employee)
+                                                <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
+
+
+
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description" class="control-label">Message</label>
-                                            <textarea name="message" rows="6" class="ckeditor form-control" ></textarea>
+                                            <textarea name="message" rows="6"  class="ckeditor form-control" >
+
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="inputBirthday" class="control-label">image</label>
-                                                <input name="image" type="file" class="form-control"/>
-                                            </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group has-success"><label
-                                                for="title" class="control-label">URl</label>
-                                            <input name="url" type="text"  value="" placeholder="Enter The Url" class="form-control" />
-                                        </div>
-                                    </div>
-                                </div>
 
 
                                 <div class="form-actions text-left pal">
@@ -81,10 +74,8 @@
                             <thead>
                             <tr>
                                 <th width="3%">ID</th>
-                                <th width="20%">Title</th>
+                                <th width="20%">Name</th>
                                 <th width="20%">Message</th>
-                                <th width="20%">Image</th>
-                                <th width="20%">URL</th>
                                 <th width="15%">Action</th>
                             </tr>
                             </thead>
@@ -92,12 +83,8 @@
                             @foreach($notification as $row)
                                 <tr>
                                     <td>{{$loop->index+1}}</td>
-                                    <td>{{$row->title}}</td>
+                                    <td>{{$row->name}}</td>
                                     <td>{!! $row->message !!}</td>
-                                    <td>
-                                        <img src="{{ asset('image/employee/image/'.$row->image) }}" alt="image" height="50px" width="50px">
-                                    </td>
-                                    <td>{{$row->url}}</td>
                                     <td>
                                         <a href={{route("notification.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
                                                 class="fa fa-edit"></i>&nbsp;
@@ -117,10 +104,8 @@
 
                             <tr>
                                 <th width="3%">ID</th>
-                                <th width="20%">Title</th>
+                                <th width="20%">Name</th>
                                 <th width="20%">Message</th>
-                                <th width="20%">Image</th>
-                                <th width="20%">URL</th>
                                 <th width="15%">Action</th>
                             </tr>
 

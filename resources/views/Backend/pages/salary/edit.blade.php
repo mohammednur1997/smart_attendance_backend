@@ -50,12 +50,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group has-success"><label
-                                                for="salary" class="control-label">Salary Per Month</label>
-                                            <input name="salary" readonly type="text" value="{{ $employee->salary }}" class="form-control" required/>
-                                        </div>
-                                    </div>
+
+
                                 </div>
 
                                 <div class="row">
@@ -96,11 +92,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group has-success"><label
-                                                for="inputFirstName" class="control-label">Paid At (date)
-                                                <span class='require'>*</span></label>
-                                            <input type="text" id="datepicker" name="date" data-date-format="yyyy-mm-dd"
-                                                   placeholder="yyyy-mm-dd"
-                                                   class="datepicker-default form-control" required/>
+                                                for="salary" class="control-label">Salary Per Month</label>
+                                            <input name="salary" readonly type="text" value="{{ $employee->salary }}" class="form-control" required/>
                                         </div>
                                     </div>
 
@@ -159,6 +152,16 @@
                                                 for="inputFirstName" class="control-label">Calculate Salary
                                                 <span class='require'>(Based On Attendance/Absence)</span></label>
                                             <input name="salary_amount" type="text" value="{{ $round_total }}" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group has-success"><label
+                                                for="inputFirstName" class="control-label">Paid At (Default date Today)
+                                                <span class='require'>*</span></label>
+                                            <input type="text" id="datepicker" name="date" value="{{ \Carbon\Carbon::now()->toDateString() }}" data-date-format="yyyy-mm-dd"
+                                                   placeholder="yyyy-mm-dd"
+                                                   class="datepicker-default form-control" required/>
                                         </div>
                                     </div>
 

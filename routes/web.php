@@ -130,6 +130,10 @@ Route::get('/employee/record', "BackEnd\RecordController@index")->name("employee
 Route::get('/employee/report', "BackEnd\ReportController@index")->name("employee.report");
 Route::get("/attendance/search", "BackEnd\ReportController@search")->name("search");
 
+//Search Salary
+Route::get("/salary/search", "BackEnd\SalarisController@searchSalary")->name("search.salary");
+
+
 
 
 //FontSite Setting ar jonno route

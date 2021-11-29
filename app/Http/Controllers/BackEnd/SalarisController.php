@@ -24,7 +24,7 @@ class SalarisController extends Controller
     public function show(Request $request){
         $salary = DB::table("salaries")
                      ->join('employees', 'salaries.employee_id', '=', 'employees.id')
-                      ->select("salaries.*", "employees.name")
+                      ->select("salaries.*", "employees.*")
                      ->get();
 
         return view("Backend.pages.salary.salary", compact("salary"));
@@ -100,7 +100,9 @@ class SalarisController extends Controller
 
     }
 
-    public function delete($id){
+    public function searchSalary(Request $request){
+        $salary = Record::where('date', 'like', '%' .$request->date . '%')->get();
+        return view("Backend.pages.salary.salary", compact("salary"));
 
     }
 }

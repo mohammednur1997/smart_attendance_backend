@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Notification;
 use App\Model\Vacation;
 use Illuminate\Http\Request;
 
@@ -87,6 +88,24 @@ class VacationController extends Controller
             ], 200);
         }
 
+    }
+
+    public function AllMessage($id){
+        $message = Notification::where("employee_id", $id)->get();
+
+        return response([
+            "result"=> "pass",
+            "message" => $message,
+        ], 200);
+    }
+
+    public function AllMessageByID($id){
+        $message = Notification::find($id);
+
+        return response([
+            "result"=> "pass",
+            "message" => $message,
+        ], 200);
     }
 
 

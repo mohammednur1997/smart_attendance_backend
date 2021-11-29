@@ -23,6 +23,32 @@
                     <div class="portlet portlet-white">
                         <div class="portlet-header pam mbn">
                             <div class="caption">Manage Salary</div>
+                            <div class="portlet-body pan">
+                                <form role="form" action="{{ route("search.salary") }}" class="form-horizontal form-separated">
+                                    @csrf
+                                    <div class="form-body pdl">
+
+                                        <div class="form-group">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Filter By Date</label>
+                                                    <input type="text" name="date" id="datepicker" data-date-format="yyyy-mm-dd"
+                                                           placeholder="yyyy-mm-dd"
+                                                           class="datepicker-default form-control"/>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-actions text-left pal">
+                                                    <button type="submit"  class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                       </div>
                     <div class="portlet-body pan">
                         <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
@@ -30,11 +56,13 @@
                             <tr>
                                 <th width="3%">SL</th>
                                 <th width="10%">Name</th>
+                                <th width="5%">Join Date</th>
                                 <th width="5%">Paid Salary</th>
                                 <th width="5%">Reward Salary</th>
                                 <th width="5%">Deduction Salary</th>
                                 <th width="5%">Status</th>
-                                <th width="5%">Date</th>
+                                <th width="5%">Payment Date</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -42,9 +70,22 @@
                                 <tr>
                                     <td>{{$loop->index+1}}</td>
                                     <td>{{$row->name}}</td>
+                                    <td>{{Carbon\Carbon::parse($row->created_at)->format('d M y')}}</td>
                                     <td>{{$row->amount_paid}}</td>
-                                    <td>{{$row->reward_salary}}</td>
-                                    <td>{{$row->deducation_salary}}</td>
+                                    <td>
+                                        @if($row->reward_salary == null)
+                                            0
+                                        @else
+                                            {{$row->reward_salary}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($row->deducation_salary == null)
+                                            0
+                                        @else
+                                        {{ $row->deducation_salary }}
+                                        @endif
+                                    </td>
                                     <td>{{$row->salary_status}}</td>
                                     <td>{{$row->date}}</td>
                                 </tr>
@@ -54,11 +95,13 @@
                             <tr>
                                 <th width="3%">SL</th>
                                 <th width="10%">Name</th>
+                                <th width="5%">Join Date</th>
                                 <th width="5%">Paid Salary</th>
                                 <th width="5%">Reward Salary</th>
                                 <th width="5%">Deduction Salary</th>
                                 <th width="5%">Status</th>
-                                <th width="5%">Date</th>
+                                <th width="5%">Payment Date</th>
+
                             </tr>
                             </tfoot>
                         </table>
@@ -74,5 +117,11 @@
             $('#myTable').DataTable();
         } );
     </script>
+
+            <script>
+                $( function() {
+                    $( "#datepicker" ).datepicker();
+                } );
+            </script>
 
 @endsection

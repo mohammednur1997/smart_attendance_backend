@@ -40,6 +40,10 @@ Route::post("/search/front", "Api\AttendanceController@frontSearch");
 
 Route::post("/changePass", "Api\ResetPasswordController@ChangePass");
 
+//Get All Message
+Route::get("/AllMessage/{id}", "Api\VacationController@AllMessage");
+Route::get("/AllMessageByID/{id}", "Api\VacationController@AllMessageByID");
+
 
 /*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/
 
