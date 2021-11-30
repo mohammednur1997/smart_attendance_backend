@@ -180,8 +180,6 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
-        Ladumor\OneSignal\OneSignalServiceProvider::class,
-        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
 
 
     ],
@@ -241,7 +239,6 @@ return [
         'OpenGraph'     => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter'       => Artesaos\SEOTools\Facades\TwitterCard::class,
         'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
-        'OneSignal' => \Ladumor\OneSignal\OneSignal::class,
 
     ],
 

@@ -4,9 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Controllers\Controller;
 use App\Model\Notification;
-use App\Notifications\OneSingnals;
 use Illuminate\Http\Request;
-use Ladumor\OneSignal\OneSignal;
 use DB;
 
 

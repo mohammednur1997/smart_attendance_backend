@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "278a72859368b5a81ebdce5d565b82e2",
+    "content-hash": "178945d83727a69689705b3a27bc184b",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -142,74 +142,6 @@
                 }
             ],
             "time": "2020-12-27T12:05:53+00:00"
-        },
-        {
-            "name": "berkayk/onesignal-laravel",
-            "version": "v1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/berkayk/laravel-onesignal.git",
-                "reference": "11a3015f33a2cd0c98f2fe1c1ea47cf67cc3e5e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/berkayk/laravel-onesignal/zipball/11a3015f33a2cd0c98f2fe1c1ea47cf67cc3e5e6",
-                "reference": "11a3015f33a2cd0c98f2fe1c1ea47cf67cc3e5e6",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.2|^7.0.1",
-                "illuminate/support": "~5.5|~6.0|~7.0|~8.0",
-                "php": ">=5.4.0",
-                "symfony/psr-http-message-bridge": "1.*|2.*"
-            },
-            "require-dev": {
-                "vlucas/phpdotenv": "^2.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Berkayk\\OneSignal\\OneSignalServiceProvider"
-                    ],
-                    "aliases": {
-                        "OneSignal": "Berkayk\\OneSignal\\OneSignalFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Berkayk\\OneSignal\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Berkay Kaya",
-                    "email": "berkayk@gmail.com",
-                    "homepage": "http://berkaykaya.com"
-                },
-                {
-                    "name": "Maykonn Welington Candido",
-                    "email": "maykonn@outlook.com"
-                }
-            ],
-            "description": "OneSignal Push Wrapper Laravel",
-            "keywords": [
-                "WebPush",
-                "laravel",
-                "laravel 5",
-                "onesignal",
-                "push"
-            ],
-            "support": {
-                "issues": "https://github.com/berkayk/laravel-onesignal/issues",
-                "source": "https://github.com/berkayk/laravel-onesignal/tree/v1.0.7"
-            },
-            "time": "2021-01-28T10:52:07+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -1007,76 +939,6 @@
             "time": "2019-11-02T09:15:47+00:00"
         },
         {
-            "name": "ladumor/one-signal",
-            "version": "v3.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/shailesh-ladumor/one-signal.git",
-                "reference": "294d9f133c8845c080a0ec8bdcb18a58f7216fbe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/shailesh-ladumor/one-signal/zipball/294d9f133c8845c080a0ec8bdcb18a58f7216fbe",
-                "reference": "294d9f133c8845c080a0ec8bdcb18a58f7216fbe",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "illuminate/support": "~5.0|^6.0|^7.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~5.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "\\Ladumor\\OneSignal\\OneSignalServiceProvider"
-                    ],
-                    "aliases": {
-                        "OneSignal": "Ladumor\\OneSignal\\OneSignal"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ladumor\\OneSignal\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shailesh Ladumor",
-                    "email": "shaileshmladumor@gmail.com"
-                }
-            ],
-            "description": "Laravel Wrapper for OneSignal.",
-            "keywords": [
-                "laravel",
-                "notification",
-                "one-signal",
-                "php",
-                "push"
-            ],
-            "support": {
-                "issues": "https://github.com/shailesh-ladumor/one-signal/issues",
-                "source": "https://github.com/shailesh-ladumor/one-signal/tree/v3.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://www.buymeacoffee.com/ladumor",
-                    "type": "custom"
-                }
-            ],
-            "time": "2020-05-10T14:41:47+00:00"
-        },
-        {
             "name": "laminas/laminas-diactoros",
             "version": "2.5.0",
             "source": {
@@ -1209,78 +1071,6 @@
                 "zf"
             ],
             "time": "2020-09-14T14:23:00+00:00"
-        },
-        {
-            "name": "laravel-notification-channels/onesignal",
-            "version": "v2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel-notification-channels/onesignal.git",
-                "reference": "882d842962c92e33692a43995ddd7c679dc684d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel-notification-channels/onesignal/zipball/882d842962c92e33692a43995ddd7c679dc684d2",
-                "reference": "882d842962c92e33692a43995ddd7c679dc684d2",
-                "shasum": ""
-            },
-            "require": {
-                "berkayk/onesignal-laravel": "^1.0.0",
-                "illuminate/notifications": "5.*|^6.0|^7.0|^8.0",
-                "illuminate/support": "5.*|^6.0|^7.0|^8.0",
-                "php": "^7.2.0|^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.3",
-                "orchestra/testbench": "^4.0|^5.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "NotificationChannels\\OneSignal\\OneSignalServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "NotificationChannels\\OneSignal\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marcel Pociot",
-                    "email": "hello@marcelpociot.com",
-                    "homepage": "http://marcelpociot.com"
-                },
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
-                },
-                {
-                    "name": "Lukas Kämmerling",
-                    "email": "kontakt@lukas-kaemmerling.de",
-                    "homepage": "https://lukas-kaemmerling.de"
-                },
-                {
-                    "name": "David Llop",
-                    "email": "hello@davidllop.com",
-                    "homepage": "http://davidllop.com"
-                }
-            ],
-            "description": "OneSignal Notifications driver",
-            "homepage": "https://github.com/laravel-notification-channels/onesignal",
-            "support": {
-                "issues": "https://github.com/laravel-notification-channels/onesignal/issues",
-                "source": "https://github.com/laravel-notification-channels/onesignal/tree/v2.3.0"
-            },
-            "time": "2021-01-05T05:30:27+00:00"
         },
         {
             "name": "laravel/framework",
