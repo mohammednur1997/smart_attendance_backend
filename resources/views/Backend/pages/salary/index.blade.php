@@ -50,12 +50,12 @@
                                         <td>
                                             <a href={{route("salary.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
                                                     class="fa fa-edit"></i>&nbsp;
-                                                Paid
+                                                Pay
                                             </a>
 
                                             <a href={{route("salary.deduction", $row->id)}} type="button" class="btn btn-danger btn-xs"><i
                                                 class="fa fa-edit"></i>&nbsp;
-                                            Deductions
+                                            Deduct
                                             </a>
 
                                             <a  href={{route("salary.reward", $row->id)}} type="button" class="btn btn-info btn-xs"><i
