@@ -46,6 +46,7 @@ Route::get("/AllMessageByID/{id}", "Api\VacationController@AllMessageByID");
 
 //Get gross salary
 Route::get("/grossSalary/{id}", "Api\AttendanceController@calculateSalary");
+Route::post("/calculate", "Api\AttendanceController@monthlyCalculation");
 
 
 /*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/

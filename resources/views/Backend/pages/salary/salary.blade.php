@@ -23,7 +23,7 @@
                     <div class="portlet portlet-white">
                         <div class="portlet-header pam mbn">
                             <div class="caption">Manage Salary</div>
-                            <div class="portlet-body pan">
+                           {{-- <div class="portlet-body pan">
                                 <form role="form" action="{{ route("search.salary") }}" class="form-horizontal form-separated">
                                     @csrf
                                     <div class="form-body pdl">
@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div>--}}
                       </div>
                     <div class="portlet-body pan">
                         <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">

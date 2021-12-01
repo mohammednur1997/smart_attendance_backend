@@ -29,7 +29,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Employee Name</label>
                                             <input name="name" readonly type="text" value="{{ $employee->name }}" class="form-control" required/>
-                                            <input name="employee_id"  type="hidden" value="{{ $employee->id }}" class="form-control"/>
+                                            <input name="employee_id" id="employee_id"  type="hidden" value="{{ $employee->id }}" class="form-control"/>
                                         </div>
                                     </div>
 
@@ -50,7 +50,27 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="selGender" class="control-label">Date
+                                                <span class='require'>*</span></label>
+                                            <select id="month" name="month" class="form-control" required>
+                                                <option value="0">===Select Month===</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -101,7 +121,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Present Day
                                                 <span class='require'>*</span></label>
-                                            <input name="present" type="text" value="{{ $present }}" class="form-control" readonly/>
+                                            <input name="present" id="present" type="text" value="{{ $present }}" class="form-control" readonly/>
                                         </div>
                                     </div>
 
@@ -113,7 +133,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Absence Day
                                                 <span class='require'>*</span></label>
-                                            <input name="absence" type="text" value="{{ $absence }}" class="form-control" readonly/>
+                                            <input name="absence" id="absence" type="text" value="{{ $absence }}" class="form-control" readonly/>
                                         </div>
                                     </div>
 
@@ -121,7 +141,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Reward
                                                 <span class='require'>*</span></label>
-                                            <input name="reward" type="text" value="{{ $reward }}" class="form-control" readonly/>
+                                            <input name="reward" id="reward" type="text" value="{{ $reward }}" class="form-control" readonly/>
                                         </div>
                                     </div>
 
@@ -132,7 +152,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Deduction
                                                 <span class='require'>*</span></label>
-                                            <input name="deduction" type="text" value="{{ $deduction }}" class="form-control" readonly/>
+                                            <input name="deduction" id="deduction" type="text" value="{{ $deduction }}" class="form-control" readonly/>
                                         </div>
                                     </div>
 
@@ -151,7 +171,7 @@
                                         <div class="form-group has-success"><label
                                                 for="inputFirstName" class="control-label">Calculate Salary
                                                 <span class='require'>(Based On Attendance/Absence)</span></label>
-                                            <input name="salary_amount" type="text" value="{{ $round_total }}" class="form-control"/>
+                                            <input name="salary_amount" id="total" type="text" value="{{ $round_total }}" class="form-control"/>
                                         </div>
                                     </div>
 
@@ -184,5 +204,40 @@
                     $( "#datepicker" ).datepicker();
                 } );
             </script>
+
+            <script>
+
+                $("#month").change(function () {
+                   let date = $("#month").val();
+                    let employee_id = $("#employee_id").val();
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    var url = "{{ url('/') }}";
+                    $.post( url+"/api/calculate",
+                        {
+                            employee_id: employee_id,
+                            month: date
+                        }
+                    )
+                        .done(function( data ) {
+                            data = JSON.parse(data);
+                            if (data.status == 'success') {
+                                $('#total').val(data.total);
+                                $('#present').val(data.present);
+                                $('#absence').val(data.absence);
+                                $('#deduction').val(data.deduction);
+                                $('#reward').val(data.reward);
+                            }
+
+                        });
+                })
+            </script>
+
+
 @endsection
 
