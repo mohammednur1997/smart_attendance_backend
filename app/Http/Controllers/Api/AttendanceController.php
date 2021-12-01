@@ -231,4 +231,41 @@ class AttendanceController extends Controller
 
     }
 
+    public function calculateSalary($id){
+        $employee = Employee::find($id);
+        $employee_salary = $employee->salary;
+        $perDaySalary = $employee_salary/30;
+
+        $present = Record::where(["present_status" => "present", "employee_id"=> $id])->whereMonth('date', Carbon::now()->month)->count();
+        $absence = Record::where(["present_status" => "absence", "employee_id"=> $id])->whereMonth('date', Carbon::now()->month)->count();
+
+        //check Deduction this month
+        $deduction = Deduction::where("employee_id", $id)->whereMonth('date', Carbon::now()->month)->sum("dd_amount");
+
+        //Check Reward This month
+        $reward = Reward::where("employee_id", $id)->whereMonth('date', Carbon::now()->month)->sum("re_amount");
+
+        //100 Riyal Deduction for per day absence in duty
+        $deductionAbsence = $absence*100;
+
+        // Calculate Present day money according to the Employee Salary
+        $amount_paid = $perDaySalary*$present ;
+
+        //Total Salary After minus the absence money
+        $absenceSalary = $amount_paid - $deductionAbsence;
+
+        //Total Salary After Reward this month;
+        $rewardSalary = $absenceSalary + $reward;
+
+        //Total Salary After Deduction this month
+        $deductionSalary = $rewardSalary - $deduction;
+
+        $round_total = round($deductionSalary, 2);
+
+
+        return response([
+            "gross"=> $round_total,
+        ],200);
+    }
+
 }

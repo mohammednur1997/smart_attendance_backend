@@ -44,6 +44,9 @@ Route::post("/changePass", "Api\ResetPasswordController@ChangePass");
 Route::get("/AllMessage/{id}", "Api\VacationController@AllMessage");
 Route::get("/AllMessageByID/{id}", "Api\VacationController@AllMessageByID");
 
+//Get gross salary
+Route::get("/grossSalary/{id}", "Api\AttendanceController@calculateSalary");
+
 
 /*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/
 

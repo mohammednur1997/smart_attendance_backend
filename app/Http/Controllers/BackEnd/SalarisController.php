@@ -17,7 +17,14 @@ class SalarisController extends Controller
     //
     public function all(){
         $employee = Employee::all();
-        return view("Backend.pages.salary.index", compact("employee"));
+        /*$getSalary = Salary::whereMonth('date', Carbon::now()->month)->get();*/
+        $getSalary = DB::table("salaries")
+                             ->join("employees", "employees.id", "=", "salaries.employee_id")
+                              ->select("salaries.*", "employees.*")
+                               ->whereMonth('date', Carbon::now()->month)
+                               ->get();
+
+        return view("Backend.pages.salary.index", compact("employee", "getSalary"));
     }
 
 

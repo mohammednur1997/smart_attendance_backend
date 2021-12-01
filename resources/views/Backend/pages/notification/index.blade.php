@@ -38,9 +38,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-
-
                                 </div>
 
                                 <div class="row">
@@ -48,8 +45,19 @@
                                         <div class="form-group">
                                             <label for="description" class="control-label">Message</label>
                                             <textarea name="message" rows="6"  class="ckeditor form-control" >
-
                                             </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="checkbox-list">
+                                                <label class="checkbox-inline">
+                                                    <input style="margin-left: -10px;" name="select" type="checkbox" value="all"/>&nbsp;
+                                                    Sent Message All Employee</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,10 +94,10 @@
                                     <td>{{$row->name}}</td>
                                     <td>{!! $row->message !!}</td>
                                     <td>
-                                        <a href={{route("notification.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
+                                      {{--  <a href={{route("notification.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
                                                 class="fa fa-edit"></i>&nbsp;
                                             Edit
-                                        </a>
+                                        </a>--}}
 
                                         <a id="delete" href={{route("notification.delete", $row->id)}} type="button" class="btn btn-danger btn-xs"><i
                                                 class="fa fa-edit"></i>&nbsp;

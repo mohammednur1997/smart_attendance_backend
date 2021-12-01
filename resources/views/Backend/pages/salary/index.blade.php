@@ -18,10 +18,10 @@
 
         <div id="table-panel-tab" class="tab-pane">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="portlet portlet-white">
                         <div class="portlet-header pam mbn">
-                            <div class="caption">Employee List</div>
+                            <div class="caption">All Employee</div>
                         </div>
                         <div class="portlet-body pan">
                             <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
@@ -29,11 +29,8 @@
                                 <tr>
                                     <th width="3%">SL</th>
                                     <th width="10%">Name</th>
-                                    <th width="10%">Email</th>
                                     <th width="10%">Phone</th>
                                     <th width="10%">Salary</th>
-                                    <th width="10%">Job Position</th>
-                                    <th width="5%">Work Hour</th>
                                     <th width="15%">Actions</th>
                                 </tr>
                                 </thead>
@@ -42,16 +39,13 @@
                                     <tr>
                                         <td>{{$loop->index+1}}</td>
                                         <td>{{$row->name}}</td>
-                                        <td>{{$row->email}}</td>
                                         <td>{{$row->phone}}</td>
                                         <td>{{$row->salary}}</td>
-                                        <td>{{$row->job_position}}</td>
-                                        <td>{{$row->work_hour}}</td>
                                         <td>
-                                            <a href={{route("salary.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
-                                                    class="fa fa-edit"></i>&nbsp;
-                                                Pay
-                                            </a>
+                                                    <a href={{route("salary.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
+                                                            class="fa fa-edit"></i>&nbsp;
+                                                        Pay
+                                                    </a>
 
                                             <a href={{route("salary.deduction", $row->id)}} type="button" class="btn btn-danger btn-xs"><i
                                                 class="fa fa-edit"></i>&nbsp;
@@ -70,11 +64,8 @@
                                 <tr>
                                     <th width="3%">SL</th>
                                     <th width="10%">Name</th>
-                                    <th width="10%">Email</th>
                                     <th width="10%">Phone</th>
                                     <th width="10%">Salary</th>
-                                    <th width="10%">Job Position</th>
-                                    <th width="5%">Work Hour</th>
                                     <th width="15%">Actions</th>
                                 </tr>
                                 </tfoot>
@@ -82,6 +73,50 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-lg-6">
+                    <div class="portlet portlet-white">
+                        <div class="portlet-header pam mbn">
+                            <div class="caption">Employee Get Salary this month</div>
+                        </div>
+                        <div class="portlet-body pan">
+                            <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable2">
+                                <thead>
+                                <tr>
+                                    <th width="3%">SL</th>
+                                    <th width="10%">Name</th>
+                                    <th width="10%">Email</th>
+                                    <th width="10%">Phone</th>
+                                    <th width="10%">Salary</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($getSalary as $row)
+                                    <tr>
+                                        <td>{{$loop->index+1}}</td>
+                                        <td>{{$row->name}}</td>
+                                        <td>{{$row->email}}</td>
+                                        <td>{{$row->phone}}</td>
+                                        <td>{{$row->salary}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th width="3%">SL</th>
+                                    <th width="10%">Name</th>
+                                    <th width="10%">Email</th>
+                                    <th width="10%">Phone</th>
+                                    <th width="10%">Salary</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 @endsection
@@ -89,6 +124,12 @@
             <script>
                 $(document).ready( function () {
                     $('#myTable').DataTable();
+                } );
+            </script>
+
+            <script>
+                $(document).ready( function () {
+                    $('#myTable2').DataTable();
                 } );
             </script>
 

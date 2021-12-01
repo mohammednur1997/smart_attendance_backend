@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Controllers\Controller;
+use App\Model\Employee;
 use App\Model\Notification;
 use Illuminate\Http\Request;
 use DB;
@@ -21,16 +22,35 @@ class NotificationController extends Controller
     }
 
     public function store(Request $request){
-       $message = new Notification();
-       $message->employee_id = $request->employee_id;
-       $message->message = $request->message;
-       $message->save();
 
-        $notification=array(
-            'message'=>'Successfully sent the message',
-            'alert-type'=>'success'
-        );
-        return Redirect()->back()->with($notification);
+        if($request->select == "all"){
+            $employee = Employee::all();
+            foreach ($employee as $emp){
+                $message = new Notification();
+                $message->employee_id = $emp->id;
+                $message->message = $request->message;
+                $message->save();
+            }
+
+            $notification=array(
+                'message'=>'Successfully sent the message',
+                'alert-type'=>'success'
+            );
+            return Redirect()->back()->with($notification);
+        }else{
+            $message = new Notification();
+            $message->employee_id = $request->employee_id;
+            $message->message = $request->message;
+            $message->save();
+
+            $notification=array(
+                'message'=>'Successfully sent the message',
+                'alert-type'=>'success'
+            );
+            return Redirect()->back()->with($notification);
+        }
+
+
 
     }
 
