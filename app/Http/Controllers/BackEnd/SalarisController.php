@@ -11,6 +11,7 @@ use App\Model\Employee;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use function Couchbase\defaultDecoder;
 
 class SalarisController extends Controller
 {
@@ -108,8 +109,28 @@ class SalarisController extends Controller
     }
 
     public function searchSalary(Request $request){
-        $salary = Record::where('date', 'like', '%' .$request->date . '%')->get();
-        return view("Backend.pages.salary.salary", compact("salary"));
+        $month = Carbon::parse($request->date)->format("m");
+        $year = "20".Carbon::parse($request->date)->format("y");
+
+        if ($request->date){
+            $salary = DB::table("salaries")
+                ->join("employees", "employees.id", "=", "salaries.employee_id")
+                ->select("salaries.*", "employees.*")
+                ->whereYear('salaries.date',$year)
+                ->whereMonth('salaries.date', $month)
+                ->get();
+
+            return view("Backend.pages.salary.salary", compact("salary"));
+        }else{
+            $salary = DB::table("salaries")
+                ->join("employees", "employees.id", "=", "salaries.employee_id")
+                ->select("salaries.*", "employees.*")
+                ->where("salaries.employee_id", $request->employee_id)
+                ->get();
+
+            return view("Backend.pages.salary.salary", compact("salary"));
+        }
 
     }
+
 }

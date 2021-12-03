@@ -87,8 +87,9 @@
                             <tr>
                                 <th width="3%">ID</th>
                                 <th width="20%">Name</th>
-                                <th width="20%">Amount</th>
+                                <th width="10%">Amount</th>
                                 <th width="20%">Reason</th>
+                                <th width="10%">Date</th>
                                 <th width="15%">Action</th>
                             </tr>
                             </thead>
@@ -99,6 +100,7 @@
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->dd_amount}}</td>
                                     <td>{!! $row->reason !!}</td>
+                                    <td>{{$row->date}}</td>
                                     <td>
                                         <a href={{route("salary.deduction.edit", $row->id)}}  type="button" class="btn btn-default btn-xs"><i
                                                 class="fa fa-edit"></i>&nbsp;
@@ -119,8 +121,9 @@
                             <tr>
                                 <th width="3%">ID</th>
                                 <th width="20%">Name</th>
-                                <th width="20%">Amount</th>
+                                <th width="10%">Amount</th>
                                 <th width="20%">Reason</th>
+                                <th width="10%">Date</th>
                                 <th width="15%">Action</th>
                             </tr>
 

@@ -46,7 +46,7 @@
                                 class="submenu-title">Pay Salary</span></a></li>
 
                     <li><a href={{route("salary.show")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manege Salary</span></a></li>
+                                class="submenu-title">Manage Salary</span></a></li>
                 </ul>
             </li>
 
@@ -64,7 +64,7 @@
                     </i><span class="menu-title">Employee Attendance</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("employee.report")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manege Attendance</span></a></li>
+                                class="submenu-title">Manage Attendance</span></a></li>
                 </ul>
             </li>
 
@@ -74,7 +74,7 @@
                     </i><span class="menu-title">Vacation Request</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("vacation")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manege Vacation</span></a></li>
+                                class="submenu-title">Manage Vacation</span></a></li>
                 </ul>
             </li>
 
@@ -83,7 +83,7 @@
                     </i><span class="menu-title">Message</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href={{route("notification")}}><i class="fa fa-align-justify"></i><span
-                                class="submenu-title">Manege Message</span></a></li>
+                                class="submenu-title">Manage Message</span></a></li>
                 </ul>
             </li>
 

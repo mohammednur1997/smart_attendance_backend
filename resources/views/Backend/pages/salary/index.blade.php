@@ -78,7 +78,7 @@
                 <div class="col-lg-6">
                     <div class="portlet portlet-white">
                         <div class="portlet-header pam mbn">
-                            <div class="caption">Employee Get Salary this month</div>
+                            <div class="caption">Employee Got Salary this month</div>
                         </div>
                         <div class="portlet-body pan">
                             <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable2">

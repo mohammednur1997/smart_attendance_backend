@@ -23,16 +23,26 @@
                     <div class="portlet portlet-white">
                         <div class="portlet-header pam mbn">
                             <div class="caption">Manage Salary</div>
-                           {{-- <div class="portlet-body pan">
+                            <div class="portlet-body pan">
                                 <form role="form" action="{{ route("search.salary") }}" class="form-horizontal form-separated">
                                     @csrf
                                     <div class="form-body pdl">
-
-                                        <div class="form-group">
+                                            <div class="col-md-3" style="margin-right: 20px">
+                                                <div class="form-group">
+                                                    <label for="name" class="control-label">Employee Name
+                                                        <span class='require'>*</span></label>
+                                                    <select id="employee_id" name="employee_id" class="form-control" required>
+                                                        <option value="0">===Select Employee===</option>
+                                                        @foreach(App\Model\Employee::all() as $employee)
+                                                            <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="control-label">Filter By Date</label>
+                                                    <label class="control-label">Date</label>
                                                     <input type="text" name="date" id="datepicker" data-date-format="yyyy-mm-dd"
                                                            placeholder="yyyy-mm-dd"
                                                            class="datepicker-default form-control"/>
@@ -46,9 +56,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+
                                 </form>
-                            </div>--}}
+                            </div>
                       </div>
                     <div class="portlet-body pan">
                         <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
@@ -87,7 +97,7 @@
                                         @endif
                                     </td>
                                     <td>{{$row->salary_status}}</td>
-                                    <td>{{$row->date}}</td>
+                                    <td>{{Carbon\Carbon::parse($row->date)->format('d M y')}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

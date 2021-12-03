@@ -232,57 +232,36 @@ class AttendanceController extends Controller
     }
 
     public function calculateSalary($id){
-        $employee = Employee::find($id);
-        $employee_salary = $employee->salary;
-        $perDaySalary = $employee_salary/30;
+        $month = Carbon::now()->month;
+        $year = Carbon::now()->year;
 
-        $present = Record::where(["present_status" => "present", "employee_id"=> $id])->whereMonth('date', Carbon::now()->month)->count();
-        $absence = Record::where(["present_status" => "absence", "employee_id"=> $id])->whereMonth('date', Carbon::now()->month)->count();
-
-        //check Deduction this month
-        $deduction = Deduction::where("employee_id", $id)->whereMonth('date', Carbon::now()->month)->sum("dd_amount");
-
-        //Check Reward This month
-        $reward = Reward::where("employee_id", $id)->whereMonth('date', Carbon::now()->month)->sum("re_amount");
-
-        //100 Riyal Deduction for per day absence in duty
-        $deductionAbsence = $absence*100;
-
-        // Calculate Present day money according to the Employee Salary
-        $amount_paid = $perDaySalary*$present ;
-
-        //Total Salary After minus the absence money
-        $absenceSalary = $amount_paid - $deductionAbsence;
-
-        //Total Salary After Reward this month;
-        $rewardSalary = $absenceSalary + $reward;
-
-        //Total Salary After Deduction this month
-        $deductionSalary = $rewardSalary - $deduction;
-
-        $round_total = round($deductionSalary, 2);
-
-
+        $salaryMonthly = DB::table("salaries")
+            ->whereYear('date',$year)
+            ->whereMonth('date', $month)
+            ->where("employee_id", $id)
+            ->first();
         return response([
-            "gross"=> $round_total,
+            "monthlyData"=> $salaryMonthly,
         ],200);
     }
 
     public function monthlyCalculation(Request $request){
         $id = $request->employee_id;
+        $month = Carbon::parse($request->month)->format("m");
+        $year = "20".Carbon::parse($request->month)->format("y");
 
         $employee = Employee::find($id);
         $employee_salary = $employee->salary;
         $perDaySalary = $employee_salary/30;
 
-        $present = Record::where(["present_status" => "present", "employee_id"=> $id])->whereMonth('date', $request->month)->count();
-        $absence = Record::where(["present_status" => "absence", "employee_id"=> $id])->whereMonth('date', $request->month)->count();
+        $present = Record::where(["present_status" => "present", "employee_id"=> $id])->whereYear('date', $year)->whereMonth('date', $month)->count();
+        $absence = Record::where(["present_status" => "absence", "employee_id"=> $id])->whereYear('date', $year)->whereMonth('date', $month)->count();
 
         //check Deduction this month
-        $deduction = Deduction::where("employee_id", $id)->whereMonth('date', $request->month)->sum("dd_amount");
+        $deduction = Deduction::where("employee_id", $id)->whereYear('date', $year)->whereMonth('date', $month)->sum("dd_amount");
 
         //Check Reward This month
-        $reward = Reward::where("employee_id", $id)->whereMonth('date', $request->month)->sum("re_amount");
+        $reward = Reward::where("employee_id", $id)->whereYear('date', $year)->whereMonth('date', $month)->sum("re_amount");
 
         //100 Riyal Deduction for per day absence in duty
         $deductionAbsence = $absence*100;
@@ -302,6 +281,21 @@ class AttendanceController extends Controller
         $round_total = round($deductionSalary, 2);
 
         return json_encode(['status' => 'success', "total"=> $round_total, "present"=> $present, "absence"=> $present, "deduction" =>$deduction, "reward"=>  $reward]);
+    }
+
+    public function monthlyCalculationFront(Request $request){
+
+        $month = Carbon::parse($request->date)->format("m");
+        $year = "20".Carbon::parse($request->date)->format("y");
+
+        $salaryMonthly = DB::table("salaries")
+                ->whereYear('date',$year)
+                ->whereMonth('date', $month)
+                ->where("employee_id", $request->employee_id)
+                ->first();
+       return response([
+            "monthlyData"=> $salaryMonthly,
+        ],200);
     }
 
 }
