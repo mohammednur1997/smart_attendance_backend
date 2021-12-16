@@ -10,8 +10,8 @@
                     <ul class="list-inline list-unstyled">
                         <li><a href={{route("profile")}} data-hover="tooltip" title="Profile"><i
                                     class="fa fa-user"></i></a></li>
-                        <li><a href={{route("mail")}} data-hover="tooltip" title="Mail"><i
-                                    class="fa fa-envelope"></i></a></li>
+                       {{-- <li><a href={{route("mail")}} data-hover="tooltip" title="Mail"><i
+                                    class="fa fa-envelope"></i></a></li>--}}
                         <li><a href={{route("admin.all")}} data-hover="tooltip" title="All User"
                                ><i class="fa fa-cog"></i></a></li>
 
@@ -26,7 +26,7 @@
                     </i><span class="menu-title">Dashboard</span></a></li>
 
 
-            <li  class={{ Route::is("employees") || Route::is("employee.create") || Route::is("employee.edit") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+            <li  class={{ Route::is("employees") || Route::is("employee.create") || Route::is("employee.edit") ? "active":"" }}><a href="#"><i class="fa fa-users fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Employees</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -38,7 +38,7 @@
                 </ul>
             </li>
 
-            <li  class={{ Route::is("salary") || Route::is("salary.edit") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+            <li  class={{ Route::is("salary") || Route::is("salary.edit") ? "active":"" }}><a href="#"><i class="fa fa-money fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Salary</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -59,7 +59,7 @@
                 </ul>
             </li>--}}
 
-            <li  class={{ Route::is("employee.report") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+            <li  class={{ Route::is("employee.report") ? "active":"" }}><a href="#"><i class="fa fa-adjust fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Employee Attendance</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -69,7 +69,7 @@
             </li>
 
 
-            <li  class={{ Route::is("vacation") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+            <li  class={{ Route::is("vacation") ? "active":"" }}><a href="#"><i class="fa fa-level-down fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Vacation Request</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -78,7 +78,7 @@
                 </ul>
             </li>
 
-            <li  class={{ Route::is("notification") ? "active":"" }}><a href="#"><i class="fa fa-laptop fa-fw">
+            <li  class={{ Route::is("notification") ? "active":"" }}><a href="#"><i class="fa fa-mail-reply fa-fw">
                         <div class="icon-bg bg-pink"></div>
                     </i><span class="menu-title">Message</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

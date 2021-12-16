@@ -7,7 +7,7 @@
                     class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                     class="icon-bar"></span><span class="icon-bar"></span></button>
             <a id="logo" href="{{ route("deshboard") }}" class="navbar-brand"><span class="fa fa-rocket"></span><span
-                    class="logo-text" style="color: red">{{--<img src={{asset("image/logos/". app_config("AppLogo"))}} width="150px" alt="">--}} AzmiSoft</span><span style="display: none" class="logo-text-icon">A</span></a>
+                    class="logo-text" style="color: red">{{--<img src={{asset("image/logos/". app_config("AppLogo"))}} width="150px" alt="">--}} Attendance</span><span style="display: none" class="logo-text-icon">A</span></a>
         </div>
         <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
             <ul class="nav navbar-nav    ">

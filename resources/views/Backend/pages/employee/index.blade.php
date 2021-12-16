@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="portlet-body pan">
-                            <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn">
+                            <table class="table table-hover table-striped table-bordered table-advanced tablesorter mbn" id="myTable">
                                 <thead>
                                 <tr>
                                     <th width="3%">SL</th>
@@ -39,7 +39,7 @@
                                     <th width="10%">Salary</th>
                                     <th width="10%">Job Position</th>
                                     <th width="10%">Work Hour</th>
-                                    <th width="20%">Actions</th>
+                                    <th width="10%">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -65,19 +65,34 @@
                                                 class="fa fa-edit"></i>&nbsp;
                                             Delete
                                             </a>
-
-                                            <a id="delete" href={{route("employee.delete", $row->id)}} type="button" class="btn btn-info btn-xs"><i
-                                                    class="fa fa-edit"></i>&nbsp;
-                                                Scan Face
-                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th width="3%">SL</th>
+                                    <th width="10%">Name</th>
+                                    <th width="10%">Email</th>
+                                    <th width="10%">Phone</th>
+                                    <th width="10%">Image</th>
+                                    <th width="10%">Salary</th>
+                                    <th width="10%">Job Position</th>
+                                    <th width="10%">Work Hour</th>
+                                    <th width="10%">Actions</th>
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+@endsection
+@section("backendScript")
+            <script>
+                 $(document).ready( function () {
+                  $('#myTable').DataTable();
+               } );
+            </script>
 @endsection

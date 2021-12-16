@@ -50,9 +50,12 @@ Route::post("/calculate", "Api\AttendanceController@monthlyCalculation");
 Route::post("/calculatePerMonth", "Api\AttendanceController@monthlyCalculationFront");
 
 
+// Register New Employee
+Route::post("/registerEmployee", "Api\EmployeeController@onRegistration");
+Route::get("/list", "Api\EmployeeController@onList");
 
 
-/*Route::post("/attendance/search", "Api\AttendanceController@search")->name("search");*/
+
 
 
 
